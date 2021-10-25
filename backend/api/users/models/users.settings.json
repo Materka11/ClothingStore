@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "users",
+  "info": {
+    "name": "Users",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "surname": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "minLength": 8
+    },
+    "newsletter": {
+      "type": "boolean",
+      "default": false,
+      "unique": false
+    },
+    "fashion": {
+      "via": "users",
+      "model": "fashions"
+    },
+    "productsCart": {
+      "via": "userCart",
+      "collection": "product"
+    },
+    "productsDisplayed": {
+      "via": "userdisplayed",
+      "collection": "product"
+    }
+  }
+}

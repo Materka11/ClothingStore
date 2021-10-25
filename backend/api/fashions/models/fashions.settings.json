@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fashions",
+  "info": {
+    "name": "Fashions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "users": {
+      "via": "fashion",
+      "collection": "users"
+    }
+  }
+}
