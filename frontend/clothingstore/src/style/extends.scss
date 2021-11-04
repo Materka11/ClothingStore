@@ -1,0 +1,12 @@
+@import 'variables';
+
+%primary-color {
+	background-color: $primary-color;
+	opacity: .71;
+}
+
+%primary-icons {
+	color: $primary-color;
+	opacity: .71;
+	font-size: 1.75em;
+}
