@@ -1,10 +1,12 @@
 import React from 'react';
-import { HomepageMobile } from './components/HomepageMobile';
+import Homepage from './components/Homepage';
+import Sellpage from './components/Sellpage';
 
 function App() {
 	return (
 		<div className="App">
-			<HomepageMobile />
+			{/* <Homepage /> */}
+			<Sellpage />
 		</div>
 	);
 }

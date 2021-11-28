@@ -1,0 +1,51 @@
+@import '../extends';
+@import '../variables';
+
+.categories {
+	width: 100vw;
+	height: 300px;
+	display: flex;
+	justify-content: flex-start;
+	overflow: scroll;
+	overflow-y: hidden;
+	@extend %primary-color;
+	border-bottom: 5px solid $white;
+	h1 {
+		font-size: 1.125em;
+		color: $white;
+	}
+	h1:first-child {
+		position: absolute;
+		padding: 30px 65% 20px 0;
+		border-bottom: 3px solid $white;
+		margin: 0 20px;
+		font-size: 1.375em;
+		opacity: 1;
+	}
+	div {
+		align-self: center;
+		margin: 0 20px;
+		text-align: center;
+		transform: translate(0, 40px);
+
+		.icon {
+			padding: 30px;
+			background-color: $white;
+			opacity: 1;
+			border-radius: 20px;
+			margin: 10px 0;
+		}
+
+		.person {
+			padding: 25px 37px;
+			font-size: 2.5em;
+		}
+
+		.male {
+			padding: 25px 39px;
+		}
+	}
+	.tag {
+		margin: 0 15px 0;
+	}
+}

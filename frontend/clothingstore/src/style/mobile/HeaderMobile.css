@@ -1,0 +1,73 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.header img {
+  width: 100px;
+  margin: 0 -15px;
+}
+
+.header div {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  text-align: right;
+}
+
+.header div .icon {
+  margin: 0 10px;
+}
+
+.header div .fa-user {
+  margin-right: 30px;
+}
+
+.inputDiv {
+  position: relative;
+  border-top: solid 1px #000000;
+}
+
+.inputDiv .input {
+  width: 100vw;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0;
+}
+
+.inputDiv .input-active {
+  padding: 15px 50px;
+  border-top: none;
+}
+
+.inputDiv .icon {
+  position: absolute;
+  font-size: 1.5em;
+}
+
+.inputDiv .right {
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.inputDiv .left {
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+/*# sourceMappingURL=HeaderMobile.css.map */

@@ -1,0 +1,33 @@
+.icon {
+  color: #6e00ff;
+  opacity: .71;
+  font-size: 1.75em;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input:focus {
+  outline: none;
+}
+
+.none {
+  display: none !important;
+}
+
+.noneBorder {
+  border: none !important;
+}
+/*# sourceMappingURL=index.css.map */

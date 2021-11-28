@@ -1,0 +1,58 @@
+@import '../extends';
+@import '../variables';
+
+.header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	transition: all 1s ease-in-out;
+	img {
+		width: 100px;
+		margin: 0 -15px;
+	}
+
+	div {
+		flex-grow: 2;
+		text-align: right;
+		.icon {
+			margin: 0 10px;
+		}
+		.fa-user {
+			margin-right: 30px;
+		}
+	}
+}
+
+.inputDiv {
+	position: relative;
+	border-top: solid 1px $black;
+	.input {
+		width: 100vw;
+		border: none;
+		padding: 10px 20px;
+		font-size: 1.1rem;
+		box-sizing: border-box;
+		border-radius: 0;
+	}
+	//input clicked
+	.input-active {
+		padding: 15px 50px;
+		border-top: none;
+	}
+	.icon {
+		position: absolute;
+		font-size: 1.5em;
+	}
+
+	.right {
+		top: 50%;
+		right: 15px;
+		transform: translate(0, -50%);
+	}
+
+	.left {
+		top: 50%;
+		left: 15px;
+		transform: translate(0, -50%);
+	}
+}

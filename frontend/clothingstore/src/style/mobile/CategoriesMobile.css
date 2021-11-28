@@ -1,0 +1,64 @@
+.categories {
+  background-color: #6e00ff;
+  opacity: .71;
+}
+
+.categories {
+  width: 100vw;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: scroll;
+  overflow-y: hidden;
+  border-bottom: 5px solid #ffffff;
+}
+
+.categories h1 {
+  font-size: 1.125em;
+  color: #ffffff;
+}
+
+.categories h1:first-child {
+  position: absolute;
+  padding: 30px 65% 20px 0;
+  border-bottom: 3px solid #ffffff;
+  margin: 0 20px;
+  font-size: 1.375em;
+  opacity: 1;
+}
+
+.categories div {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0 20px;
+  text-align: center;
+  -webkit-transform: translate(0, 40px);
+          transform: translate(0, 40px);
+}
+
+.categories div .icon {
+  padding: 30px;
+  background-color: #ffffff;
+  opacity: 1;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+
+.categories div .person {
+  padding: 25px 37px;
+  font-size: 2.5em;
+}
+
+.categories div .male {
+  padding: 25px 39px;
+}
+
+.categories .tag {
+  margin: 0 15px 0;
+}
+/*# sourceMappingURL=CategoriesMobile.css.map */

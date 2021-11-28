@@ -1,0 +1,19 @@
+.interestingOffers {
+  height: 550px;
+}
+
+.interestingOffers h1 {
+  font-size: 1.5em;
+  margin: 50px 30px 5px;
+}
+
+.interestingOffers h1:nth-child(2) {
+  font-weight: 400;
+  margin: 0 0 5px 30px;
+}
+
+.interestingOffers .linkTO {
+  color: #6e00ff;
+  margin: 20px 30px;
+}
+/*# sourceMappingURL=InterestingOffers.css.map */
