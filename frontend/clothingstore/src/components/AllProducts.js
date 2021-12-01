@@ -8,8 +8,8 @@ import useFetch from '../hooks/useFetch';
 import '../style/mobile/AllProductsMobile.css';
 
 function AllProducts({ classNone }) {
-	const { loading, error, data } = useFetch('http://localhost:1337/products');
-	const apiUrl = 'http://localhost:1337';
+	const { loading, error, data } = useFetch('http://192.168.8.107:1337/products');
+	const apiUrl = 'http://192.168.8.107:1337';
 
 	const [ isToggled, setisToggled ] = useState(false);
 	const [ classNoneBorderBotton, setClassNoneBorderBotton ] = useState('');
