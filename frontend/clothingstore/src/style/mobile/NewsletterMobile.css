@@ -5,13 +5,13 @@
 }
 
 .newsletter h1 {
-  font-size: 1.3125em;
+  font-size: 1.3125rem;
   margin: 0 0 5px;
   padding: 50px 0 0;
 }
 
 .newsletter h2 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   font-weight: 400;
   margin: 15px 0 5px 0;
 }
@@ -30,7 +30,7 @@
   border-left: 1px solid #000000;
   border-right: 1px solid #000000;
   padding: 7px;
-  font-size: 1em;
+  font-size: 1rem;
   color: #7e7e7e;
 }
 
@@ -45,7 +45,7 @@
 .newsletter div h1 {
   margin: 5px 0;
   padding: 0;
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 
 .newsletter div h1:nth-child(3) {
@@ -114,7 +114,7 @@
 }
 
 .newsletter div .radio h2 {
-  font-size: 1.125em;
+  font-size: 1.125rem;
   margin: 7px 0 0;
 }
 
@@ -122,7 +122,7 @@
   background-color: #000000;
   color: #ffffff;
   margin: 15px 0;
-  font-size: 1.125em;
+  font-size: 1.125rem;
   font-weight: bold;
   width: 100%;
   height: 60px;

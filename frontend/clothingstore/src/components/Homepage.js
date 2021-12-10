@@ -4,10 +4,11 @@ import '../style/mobile/HeaderMobile.css';
 
 import Newsletter from './Newsletter';
 import Footer from './Footer';
-import NewItem from './NewItem';
-import InterestingOffers from './InterestingOffers';
-import Categories from './Categories';
 import Header from './Header';
+import HomepageDisplay from './HomepageDisplay';
+
+import { Routes, Route, Navigate } from 'react-router-dom';
+import AllProducts from './AllProducts';
 
 function Homepage() {
 	//useState on input and icon
@@ -44,9 +45,11 @@ function Homepage() {
 				handleClickInput={handleClickInput}
 				handleClickBack={handleClickBack}
 			/>
-			<Categories classNone={classNone} />
-			<NewItem classNone={classNone} />
-			<InterestingOffers classNone={classNone} />
+			<Routes>
+				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
+				<Route path="allproducts" element={<AllProducts classNone={classNone} />} />
+				<Route path="/" element={<Navigate replace to="homepage" />} />
+			</Routes>
 			<Newsletter classNone={classNone} />
 			<Footer classNone={classNone} />
 		</React.Fragment>

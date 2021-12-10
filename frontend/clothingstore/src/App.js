@@ -1,12 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Homepage from './components/Homepage';
-import Sellpage from './components/Sellpage';
 
 function App() {
 	return (
 		<div className="App">
-			{/* <Homepage /> */}
-			<Sellpage />
+			<Router>
+				<Homepage />
+			</Router>
 		</div>
 	);
 }

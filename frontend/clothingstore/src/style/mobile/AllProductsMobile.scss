@@ -20,8 +20,18 @@
 			color: $primary-color;
 		}
 	}
-	h1 {
+	button {
+		background-color: $white;
+		border: none;
+		padding: 0;
+		margin: 0;
+		width: 150px;
 		margin: 0 0 20px 30px;
+		h1 {
+			margin: 0;
+			color: $black;
+			font-size: 2rem;
+		}
 	}
 }
 
@@ -40,6 +50,8 @@
 		position: relative;
 		background-color: $white;
 		border: 2px solid $black;
+		color: $black;
+		margin: 0;
 		span {
 			position: absolute;
 			transform: translate(-50%, -50%);
@@ -48,6 +60,7 @@
 			width: 130px;
 			font-size: 1.125em;
 			font-weight: 600;
+			margin: 0;
 		}
 	}
 	button:focus {
@@ -57,6 +70,8 @@
 }
 .sortDiv {
 	position: relative;
+	z-index: 99;
+	margin: 0;
 	.sort {
 		width: 130px;
 		height: 50px;
@@ -70,6 +85,7 @@
 			margin: 0 20px 0 0;
 			font-weight: 600;
 			font-size: 1.125em;
+			color: $black;
 		}
 	}
 	div {
@@ -105,49 +121,179 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 30px;
+	margin: 50px 0;
 	.product {
 		width: 150px;
-		margin: 20px 0;
-		height: 325px;
+		height: 310px;
 		background-color: $white;
 		//box-shadow: 0px 13px 21px -5px rgba(0, 0, 0, 0.3);
 		box-shadow: 0px 3px 11px -5px rgba(0, 0, 0, 0.3);
-		.image {
-			img {
+		position: relative;
+		button {
+			padding: 0;
+			text-align: left;
+			background-color: $white;
+			border: none;
+			margin: 0;
+
+			.image {
+				img {
+					width: 100%;
+				}
+			}
+			.backgroundPurple {
 				width: 150px;
-			}
-		}
-		.productStats {
-			position: relative;
-			width: 100%;
-			height: 100px;
-			h1,
-			h2 {
-				margin: 5px 5px 0;
-				white-space: nowrap;
-				overflow: hidden;
-			}
-			h1 {
-				font-size: 1.125em;
-				font-weight: 600;
-			}
-			h2 {
-				font-size: 1em;
-				font-weight: 400;
-			}
-			span {
-				font-size: 1.375em;
-				font-weight: 600;
+				background-color: $primary-color;
+				height: 215px;
 				position: absolute;
-				right: 10px;
-				bottom: 10px;
+				top: 0;
+				display: none;
+			}
+
+			.productStats {
+				position: relative;
+				width: 150px;
+				height: 90px;
+				div {
+					width: calc(100% - 10px);
+					overflow: hidden;
+
+					h1,
+					h2 {
+						margin: 5px 0 0 10px;
+						white-space: nowrap;
+						font-size: .875rem;
+						color: $black;
+						text-overflow: ellipsis;
+					}
+				}
+
+				h1 {
+					font-weight: 600;
+				}
+				h2 {
+					font-weight: 400;
+				}
+
+				span {
+					font-size: 1rem;
+					font-weight: 600;
+					position: absolute;
+					right: 15px;
+					bottom: 10px;
+					color: $black;
+				}
+			}
+			.productOptions {
+				display: none;
 			}
 		}
-		.productOptions {
-			display: none;
+		button:focus {
+			border: 1px solid rgba(0, 0, 0, 0.2);
 		}
 	}
-	.product:hover {
-		background-color: $black;
+}
+//loader
+.ldsRoller {
+	display: block;
+	position: relative;
+	width: 80px;
+	height: 100vh;
+	margin: 25vh auto;
+
+	div {
+		animation: ldsRoller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+		transform-origin: 40px 40px;
+	}
+	div:after {
+		content: " ";
+		display: block;
+		position: absolute;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: $primary-color;
+		margin: -4px 0 0 -4px;
+	}
+	div:nth-child(1) {
+		animation-delay: -0.036s;
+	}
+	div:nth-child(1):after {
+		top: 63px;
+		left: 63px;
+	}
+	div:nth-child(2) {
+		animation-delay: -0.072s;
+	}
+	div:nth-child(2):after {
+		top: 68px;
+		left: 56px;
+	}
+	div:nth-child(3) {
+		animation-delay: -0.108s;
+	}
+	div:nth-child(3):after {
+		top: 71px;
+		left: 48px;
+	}
+	div:nth-child(4) {
+		animation-delay: -0.144s;
+	}
+	div:nth-child(4):after {
+		top: 72px;
+		left: 40px;
+	}
+	div:nth-child(5) {
+		animation-delay: -0.18s;
+	}
+	div:nth-child(5):after {
+		top: 71px;
+		left: 32px;
+	}
+	div:nth-child(6) {
+		animation-delay: -0.216s;
+	}
+	div:nth-child(6):after {
+		top: 68px;
+		left: 24px;
+	}
+	div:nth-child(7) {
+		animation-delay: -0.252s;
+	}
+	div:nth-child(7):after {
+		top: 63px;
+		left: 17px;
+	}
+	div:nth-child(8) {
+		animation-delay: -0.288s;
+	}
+	div:nth-child(8):after {
+		top: 56px;
+		left: 12px;
+	}
+}
+@keyframes ldsRoller {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+//error
+.error {
+	color: $primary-color;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+
+	h1 {
+		margin: 20px;
+	}
+
+	.icon {
+		font-size: 3rem;
 	}
 }

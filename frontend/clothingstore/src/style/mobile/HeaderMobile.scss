@@ -6,9 +6,15 @@
 	justify-content: flex-start;
 	align-items: center;
 	transition: all 1s ease-in-out;
-	img {
-		width: 100px;
-		margin: 0 -15px;
+	position: relative;
+
+	.link {
+		height: 100px;
+		img {
+			width: 100px;
+			position: absolute;
+			left: -15px;
+		}
 	}
 
 	div {
@@ -41,7 +47,7 @@
 	}
 	.icon {
 		position: absolute;
-		font-size: 1.5em;
+		font-size: 1.5rem;
 	}
 
 	.right {

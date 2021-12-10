@@ -10,11 +10,17 @@
           align-items: center;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+  position: relative;
 }
 
-.header img {
+.header .link {
+  height: 100px;
+}
+
+.header .link img {
   width: 100px;
-  margin: 0 -15px;
+  position: absolute;
+  left: -15px;
 }
 
 .header div {
@@ -54,7 +60,7 @@
 
 .inputDiv .icon {
   position: absolute;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .inputDiv .right {
