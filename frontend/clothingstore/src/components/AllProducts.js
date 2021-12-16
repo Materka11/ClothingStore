@@ -44,6 +44,9 @@ function AllProducts({ classNone }) {
 			</div>
 		);
 
+	//sort products by popular
+	const SortDataByPopular = [].concat(data).sort((a, b) => b.popular - a.popular);
+	console.log(SortDataByPopular);
 	//subcategories
 	function removeDuplicates(data) {
 		const newArray = [];
@@ -78,12 +81,12 @@ function AllProducts({ classNone }) {
 	//filter products
 	const filterProducts = (sub) => {
 		if (sub === sub.name) {
-			setproductsFilter(data);
+			setproductsFilter(SortDataByPopular);
 
 			return;
 		}
 
-		const filteredData = data.filter((product) => product.subcategories[0].name === sub);
+		const filteredData = SortDataByPopular.filter((product) => product.subcategories[0].name === sub);
 		setproductsFilter(filteredData);
 	};
 
@@ -130,7 +133,9 @@ function AllProducts({ classNone }) {
 					<FontAwesomeIcon className="icon" icon={icon} />
 				</button>
 				<div className={classNoneSort}>
-					<span>Popularność</span>
+					<span>
+						<b>Popularność</b>
+					</span>
 					<span>Nowości</span>
 					<span>Najniższa cena</span>
 					<span>Najwyższa cena</span>
@@ -141,7 +146,7 @@ function AllProducts({ classNone }) {
 				{productsFilter.length !== 0 ? (
 					productsFilter.map((product) => (
 						<div key={product.id} className="product">
-							<button>
+							<button onClick={() => data.popular + 1}>
 								<div className="image">
 									<img src={apiUrl + product.photos[0].url} alt="product" />
 								</div>
@@ -166,9 +171,9 @@ function AllProducts({ classNone }) {
 						</div>
 					))
 				) : (
-					data.map((product) => (
+					SortDataByPopular.map((product) => (
 						<div key={product.id} className="product">
-							<button>
+							<button onClick={() => data.popular + 1}>
 								<div className="image">
 									<img src={apiUrl + product.photos[0].url} alt="product" />
 								</div>
@@ -197,5 +202,4 @@ function AllProducts({ classNone }) {
 		</div>
 	);
 }
-
 export default AllProducts;
