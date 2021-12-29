@@ -132,19 +132,40 @@
   border-top: none;
 }
 
-.sortDiv div span {
+.sortDiv div button {
   display: block;
   width: 170px;
   height: 35px;
   z-index: 999;
-  margin: 10px 0 0 30px;
+  margin: 10px 0 10px 20px;
+  border: none;
   border-bottom: 1px solid #efeff0;
+  padding: 0;
+  background-color: #ffffff;
+  text-align: left;
+  font-size: 0.9375em;
+}
+
+.sortDiv div button:nth-last-child(2) {
+  border: none;
 }
 
 .sortDiv div div {
   position: absolute;
-  width: 70px;
+  width: 60px;
   right: 0;
+}
+
+.sortDiv div .ByNewest {
+  font-weight: bold;
+}
+
+.sortDiv div .ByCheapest {
+  font-weight: bold;
+}
+
+.sortDiv div .ByExpensive {
+  font-weight: bold;
 }
 
 .sortDiv .noneBorderBotton {

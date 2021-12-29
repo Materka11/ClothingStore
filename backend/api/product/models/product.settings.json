@@ -72,12 +72,6 @@
     "categories": {
       "via": "products",
       "collection": "categories"
-    },
-    "popular": {
-      "type": "integer",
-      "default": 1,
-      "required": true,
-      "min": 1
     }
   }
 }

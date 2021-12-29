@@ -11,15 +11,19 @@ import '../style/mobile/AllProductsMobile.css';
 import { Link } from 'react-router-dom';
 
 function AllProducts({ classNone }) {
-	const { loading, error, data } = useFetch('http://192.168.8.105:1337/products');
-	const apiUrl = 'http://192.168.8.105:1337';
+	const { loading, error, data } = useFetch('http://192.168.8.106:1337/products');
+	const apiUrl = 'http://192.168.8.106:1337';
 
 	const [ isToggled, setIsToggled ] = useState(false);
 	const [ classNoneBorderBotton, setClassNoneBorderBotton ] = useState('');
 	const [ icon, setIcon ] = useState(faChevronDown);
 	const [ classNoneSort, setclassNoneSort ] = useState('none');
 
-	const [ productsFilter, setproductsFilter ] = useState([]);
+	const [ productsFilter, setProductsFilter ] = useState([]);
+
+	const [ sortOption, setSortOption ] = useState('ByNewest');
+
+	// const [ productsSort, setproductsSort ] = useState([]);
 
 	// const [ isFocus, setIsFocus ] = useState(false);
 	// const [ classPurpleBG, setclassPurpleBG ] = useState('none');
@@ -44,9 +48,38 @@ function AllProducts({ classNone }) {
 			</div>
 		);
 
-	//sort products by popular
-	const SortDataByPopular = [].concat(data).sort((a, b) => b.popular - a.popular);
-	console.log(SortDataByPopular);
+	//sort data
+	const changeSortData = (data) => {
+		// //0 - nowosci, 1 - najnizsza cena, 2 - najwyzsza cena - 3
+		// let sortOptions = 0;
+
+		let sortData = [];
+
+		//sort products by popular
+		// const SortDataByPopular = [].concat(data).sort((a, b) => b.popular - a.popular);
+
+		//sort products by newest
+		const SortDataByNewest = []
+			.concat(data)
+			.sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at));
+
+		//sort products by cheapest
+		const SortDataByCheapest = [].concat(data).sort((a, b) => a.price - b.price);
+
+		//sort products by most expensive
+		const SortDataByExpensive = [].concat(data).sort((a, b) => b.price - a.price);
+
+		if (sortOption === 'ByNewest') {
+			sortData = SortDataByNewest;
+		} else if (sortOption === 'ByCheapest') {
+			sortData = SortDataByCheapest;
+		} else if (sortOption === 'ByExpensive') {
+			sortData = SortDataByExpensive;
+		}
+
+		return sortData;
+	};
+
 	//subcategories
 	function removeDuplicates(data) {
 		const newArray = [];
@@ -81,13 +114,13 @@ function AllProducts({ classNone }) {
 	//filter products
 	const filterProducts = (sub) => {
 		if (sub === sub.name) {
-			setproductsFilter(SortDataByPopular);
+			setProductsFilter(changeSortData(data));
 
 			return;
 		}
 
-		const filteredData = SortDataByPopular.filter((product) => product.subcategories[0].name === sub);
-		setproductsFilter(filteredData);
+		const filteredData = changeSortData(data).filter((product) => product.subcategories[0].name === sub);
+		setProductsFilter(filteredData);
 	};
 
 	//products
@@ -133,12 +166,24 @@ function AllProducts({ classNone }) {
 					<FontAwesomeIcon className="icon" icon={icon} />
 				</button>
 				<div className={classNoneSort}>
-					<span>
-						<b>Popularność</b>
-					</span>
-					<span>Nowości</span>
-					<span>Najniższa cena</span>
-					<span>Najwyższa cena</span>
+					<button
+						className={sortOption === 'ByNewest' ? 'ByNewest' : ''}
+						onClick={() => setSortOption('ByNewest')}
+					>
+						Nowości
+					</button>
+					<button
+						className={sortOption === 'ByCheapest' ? 'ByCheapest' : ''}
+						onClick={() => setSortOption('ByCheapest')}
+					>
+						Najniższa cena
+					</button>
+					<button
+						className={sortOption === 'ByExpensive' ? 'ByExpensive' : ''}
+						onClick={() => setSortOption('ByExpensive')}
+					>
+						Najwyższa cena
+					</button>
 					<div />
 				</div>
 			</div>
@@ -146,7 +191,7 @@ function AllProducts({ classNone }) {
 				{productsFilter.length !== 0 ? (
 					productsFilter.map((product) => (
 						<div key={product.id} className="product">
-							<button onClick={() => data.popular + 1}>
+							<button>
 								<div className="image">
 									<img src={apiUrl + product.photos[0].url} alt="product" />
 								</div>
@@ -171,9 +216,9 @@ function AllProducts({ classNone }) {
 						</div>
 					))
 				) : (
-					SortDataByPopular.map((product) => (
+					changeSortData(data).map((product) => (
 						<div key={product.id} className="product">
-							<button onClick={() => data.popular + 1}>
+							<button>
 								<div className="image">
 									<img src={apiUrl + product.photos[0].url} alt="product" />
 								</div>
