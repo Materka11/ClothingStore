@@ -5,28 +5,36 @@
 	display: flex;
 	flex-direction: column;
 
-	.icon {
-		margin: 40px 0 30px 30px;
-	}
-
 	div {
-		display: flex;
+		height: 100px;
+		position: relative;
 
-		h2 {
-			text-align: right;
-			flex-grow: 2;
-			margin: 40px 30px 0 0;
-			font-size: 1.125em;
+		.icon {
+			position: absolute;
+			top: 40px;
+			left: 30px;
+		}
+
+		button {
+			font-size: 1.125rem;
 			color: $primary-color;
+			background-color: $white;
+			border: none;
+			font-weight: bold;
+			position: absolute;
+			top: 40px;
+			right: 30px;
+			padding: 0;
 		}
 	}
-	button {
+	.titleCategorie {
 		background-color: $white;
 		border: none;
 		padding: 0;
 		margin: 0;
 		width: 150px;
 		margin: 0 0 20px 30px;
+
 		h1 {
 			margin: 0;
 			color: $black;
@@ -45,6 +53,7 @@
 	margin: 0 0 20px 30px;
 	gap: 10px;
 	justify-content: space-between;
+
 	button {
 		padding: 0 70px;
 		position: relative;
@@ -52,6 +61,7 @@
 		border: 2px solid $black;
 		color: $black;
 		margin: 0;
+
 		span {
 			position: absolute;
 			transform: translate(-50%, -50%);
@@ -68,10 +78,14 @@
 		color: $white;
 	}
 }
+.subcategories::-webkit-scrollbar {
+	display: none;
+}
 .sortDiv {
 	position: relative;
 	z-index: 99;
 	margin: 0;
+
 	.sort {
 		width: 130px;
 		height: 50px;
@@ -81,6 +95,7 @@
 		align-items: center;
 		background-color: $white;
 		border: 2px solid $black;
+
 		span {
 			margin: 0 20px 0 0;
 			font-weight: 600;
@@ -96,6 +111,7 @@
 		background-color: $white;
 		border: 2px solid $black;
 		border-top: none;
+
 		button {
 			display: block;
 			width: 170px;
@@ -108,6 +124,7 @@
 			background-color: $white;
 			text-align: left;
 			font-size: 0.9375em;
+			color: $black;
 		}
 
 		button:nth-last-child(2) {
@@ -141,6 +158,7 @@
 	justify-content: center;
 	gap: 30px;
 	margin: 50px 0;
+
 	.product {
 		width: 150px;
 		height: 310px;
@@ -148,6 +166,7 @@
 		//box-shadow: 0px 13px 21px -5px rgba(0, 0, 0, 0.3);
 		box-shadow: 0px 3px 11px -5px rgba(0, 0, 0, 0.3);
 		position: relative;
+
 		button {
 			padding: 0;
 			text-align: left;
@@ -173,6 +192,7 @@
 				position: relative;
 				width: 150px;
 				height: 90px;
+
 				div {
 					width: calc(100% - 10px);
 					overflow: hidden;
@@ -207,7 +227,7 @@
 				display: none;
 			}
 		}
-		button:focus {
+		button {
 			border: 1px solid rgba(0, 0, 0, 0.2);
 		}
 	}
@@ -315,4 +335,179 @@
 	.icon {
 		font-size: 3rem;
 	}
+}
+
+//slide div filter
+.filtrDiv {
+	position: absolute;
+	top: 100vh;
+	left: 0;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	background-color: $gray;
+	transition: transform .5s ease-in-out;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+
+	//inside filtr div
+	.filtrTitle {
+		width: 100vw;
+		height: 40px;
+		background-color: $white;
+		border: .5px solid $dark-gray;
+		border-left: none;
+		position: relative;
+
+		.x {
+			width: 40px;
+			height: 40px;
+			background-color: $white;
+			position: relative;
+			border: none;
+			border-right: .5px solid $dark-gray;
+			box-sizing: border-box;
+			float: left;
+			padding: 0;
+		}
+
+		.x::before,
+		.x:after {
+			content: '';
+			position: absolute;
+			width: 25px;
+			height: 1px;
+			background-color: $black;
+			border-radius: 2px;
+			top: 20px;
+			box-shadow: 0 0 2px 0 #ccc;
+		}
+
+		.x:before {
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			transform: rotate(45deg);
+			left: 7px;
+		}
+		.x:after {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			right: 7px;
+		}
+		h1 {
+			margin: 0;
+			font-size: 1.125rem;
+			float: left;
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			left: 60px;
+		}
+
+		button:last-child {
+			right: 10px;
+			text-align: right;
+			color: $primary-color;
+			font-size: 1.125rem;
+			color: $primary-color;
+			background-color: $white;
+			border: none;
+			font-weight: bold;
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+	}
+	.filtrDisplay {
+		width: 100vw;
+		background-color: $white;
+		border: .5px solid $dark-gray;
+		border-left: none;
+		overflow-x: scroll;
+
+		h1 {
+			font-size: 1.125rem;
+			margin-left: 15px;
+		}
+
+		.displayElement {
+			width: calc(100vw - 50px);
+			height: 50px;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			display: flex;
+			align-items: stretch;
+			margin: 0 0 20px 30px;
+			gap: 10px;
+			justify-content: space-between;
+
+			button {
+				padding: 0 70px;
+				position: relative;
+				background-color: $white;
+				border: 2px solid $dark-gray;
+				color: $dark-gray;
+				margin: 0;
+
+				span {
+					position: absolute;
+					transform: translate(-50%, -50%);
+					left: 50%;
+					top: 50%;
+					width: 140px;
+					font-size: 1.125em;
+					font-weight: 600;
+					margin: 0;
+				}
+			}
+
+			button:focus {
+				background-color: $primary-color;
+				color: $white;
+				border: 2px solid $black;
+			}
+		}
+		div::-webkit-scrollbar {
+			display: none;
+		}
+	}
+	.resultButton {
+		padding: 20px 0;
+		position: relative;
+		background-color: $white;
+		border: 2px solid $dark-gray;
+		color: $dark-gray;
+		margin: 0;
+		width: 50vw;
+
+		span {
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			width: 140px;
+			font-size: 1.125em;
+			font-weight: 600;
+			margin: 0;
+		}
+	}
+	.onClickButtonResult {
+		border: 2px solid $black;
+		color: $black;
+	}
+}
+
+//animation
+.filtrDivVisible {
+	transform: translate(0, -100vh);
+	z-index: 999;
+	visibility: visible;
+}
+
+.filtrDivInvisible {
+	transform: translate(0, 100vh);
+	visibility: hidden;
 }

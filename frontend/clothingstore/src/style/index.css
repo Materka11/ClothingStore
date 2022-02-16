@@ -30,4 +30,10 @@ input:focus {
 .noneBorder {
   border: none !important;
 }
+
+.fullscreen {
+  height: 100vh;
+  overflow-y: hidden;
+  position: relative;
+}
 /*# sourceMappingURL=index.css.map */

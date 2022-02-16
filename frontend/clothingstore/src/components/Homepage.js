@@ -10,7 +10,7 @@ import HomepageDisplay from './HomepageDisplay';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AllProducts from './AllProducts';
 
-function Homepage() {
+function Homepage({ setClassFullscreen }) {
 	//useState on input and icon
 	const [ hasButtonBeenClicked, setHasButtonBeenClicked ] = useState(false);
 	const [ classNone, setClassNone ] = useState('');
@@ -47,7 +47,10 @@ function Homepage() {
 			/>
 			<Routes>
 				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
-				<Route path="allproducts" element={<AllProducts classNone={classNone} />} />
+				<Route
+					path="allproducts"
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
 				<Route path="/" element={<Navigate replace to="homepage" />} />
 			</Routes>
 			<Newsletter classNone={classNone} />

@@ -8,27 +8,30 @@
           flex-direction: column;
 }
 
-.upSubcategories .icon {
-  margin: 40px 0 30px 30px;
-}
-
 .upSubcategories div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  height: 100px;
+  position: relative;
 }
 
-.upSubcategories div h2 {
-  text-align: right;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-  margin: 40px 30px 0 0;
-  font-size: 1.125em;
+.upSubcategories div .icon {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+}
+
+.upSubcategories div button {
+  font-size: 1.125rem;
   color: #6e00ff;
+  background-color: #ffffff;
+  border: none;
+  font-weight: bold;
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  padding: 0;
 }
 
-.upSubcategories button {
+.upSubcategories .titleCategorie {
   background-color: #ffffff;
   border: none;
   padding: 0;
@@ -37,7 +40,7 @@
   margin: 0 0 20px 30px;
 }
 
-.upSubcategories button h1 {
+.upSubcategories .titleCategorie h1 {
   margin: 0;
   color: #000000;
   font-size: 2rem;
@@ -85,6 +88,10 @@
 .subcategories button:focus {
   background-color: #6e00ff;
   color: #ffffff;
+}
+
+.subcategories::-webkit-scrollbar {
+  display: none;
 }
 
 .sortDiv {
@@ -144,6 +151,7 @@
   background-color: #ffffff;
   text-align: left;
   font-size: 0.9375em;
+  color: #000000;
 }
 
 .sortDiv div button:nth-last-child(2) {
@@ -256,7 +264,7 @@
   display: none;
 }
 
-.allProducts .product button:focus {
+.allProducts .product button {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -409,5 +417,205 @@
 
 .error .icon {
   font-size: 3rem;
+}
+
+.filtrDiv {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  background-color: #efeff0;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filtrDiv .filtrTitle {
+  width: 100vw;
+  height: 40px;
+  background-color: #ffffff;
+  border: 0.5px solid #7e7e7e;
+  border-left: none;
+  position: relative;
+}
+
+.filtrDiv .filtrTitle .x {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  position: relative;
+  border: none;
+  border-right: 0.5px solid #7e7e7e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  padding: 0;
+}
+
+.filtrDiv .filtrTitle .x::before,
+.filtrDiv .filtrTitle .x:after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background-color: #000000;
+  border-radius: 2px;
+  top: 20px;
+  -webkit-box-shadow: 0 0 2px 0 #ccc;
+          box-shadow: 0 0 2px 0 #ccc;
+}
+
+.filtrDiv .filtrTitle .x:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 7px;
+}
+
+.filtrDiv .filtrTitle .x:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 7px;
+}
+
+.filtrDiv .filtrTitle h1 {
+  margin: 0;
+  font-size: 1.125rem;
+  float: left;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  left: 60px;
+}
+
+.filtrDiv .filtrTitle button:last-child {
+  right: 10px;
+  text-align: right;
+  color: #6e00ff;
+  font-size: 1.125rem;
+  color: #6e00ff;
+  background-color: #ffffff;
+  border: none;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.filtrDiv .filtrDisplay {
+  width: 100vw;
+  background-color: #ffffff;
+  border: 0.5px solid #7e7e7e;
+  border-left: none;
+  overflow-x: scroll;
+}
+
+.filtrDiv .filtrDisplay h1 {
+  font-size: 1.125rem;
+  margin-left: 15px;
+}
+
+.filtrDiv .filtrDisplay .displayElement {
+  width: calc(100vw - 50px);
+  height: 50px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin: 0 0 20px 30px;
+  gap: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.filtrDiv .filtrDisplay .displayElement button {
+  padding: 0 70px;
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid #7e7e7e;
+  color: #7e7e7e;
+  margin: 0;
+}
+
+.filtrDiv .filtrDisplay .displayElement button span {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 140px;
+  font-size: 1.125em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.filtrDiv .filtrDisplay .displayElement button:focus {
+  background-color: #6e00ff;
+  color: #ffffff;
+  border: 2px solid #000000;
+}
+
+.filtrDiv .filtrDisplay div::-webkit-scrollbar {
+  display: none;
+}
+
+.filtrDiv .resultButton {
+  padding: 20px 0;
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid #7e7e7e;
+  color: #7e7e7e;
+  margin: 0;
+  width: 50vw;
+}
+
+.filtrDiv .resultButton span {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 140px;
+  font-size: 1.125em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.filtrDiv .onClickButtonResult {
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.filtrDivVisible {
+  -webkit-transform: translate(0, -100vh);
+          transform: translate(0, -100vh);
+  z-index: 999;
+  visibility: visible;
+}
+
+.filtrDivInvisible {
+  -webkit-transform: translate(0, 100vh);
+          transform: translate(0, 100vh);
+  visibility: hidden;
 }
 /*# sourceMappingURL=AllProductsMobile.css.map */

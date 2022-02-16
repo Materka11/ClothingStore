@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Homepage from './components/Homepage';
 
 function App() {
+	const [ classFullscreen, setClassFullscreen ] = useState('');
+
 	return (
-		<div className="App">
+		<div className={`App ${classFullscreen}`}>
 			<Router>
-				<Homepage />
+				<Homepage setClassFullscreen={setClassFullscreen} />
 			</Router>
 		</div>
 	);
