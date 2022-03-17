@@ -11,7 +11,7 @@ function Categories({ classNone }) {
 	return (
 		<div className={`categories ${classNone}`}>
 			<h1>Kategorie</h1>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/allproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon" icon={faTh} />
 					<h1>Wszystko</h1>

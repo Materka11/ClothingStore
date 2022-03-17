@@ -9,6 +9,7 @@ import HomepageDisplay from './HomepageDisplay';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AllProducts from './AllProducts';
+import DetailsProduct from './DetailsProduct';
 
 function Homepage({ setClassFullscreen }) {
 	//useState on input and icon
@@ -35,6 +36,7 @@ function Homepage({ setClassFullscreen }) {
 		setClassLeftIcon('none');
 		setClassNoneBorder('');
 	};
+
 	return (
 		<React.Fragment>
 			<Header
@@ -48,8 +50,42 @@ function Homepage({ setClassFullscreen }) {
 			<Routes>
 				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
 				<Route
-					path="allproducts"
+					path="allproducts/sub/size/brand/color/detail/ByNewest"
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize/:nameBrand"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort"
+					exact={true}
+					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+				/>
+				<Route
+					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort/:id"
+					element={<DetailsProduct />}
 				/>
 				<Route path="/" element={<Navigate replace to="homepage" />} />
 			</Routes>

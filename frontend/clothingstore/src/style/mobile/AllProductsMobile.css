@@ -38,6 +38,7 @@
   margin: 0;
   width: 150px;
   margin: 0 0 20px 30px;
+  text-decoration: none;
 }
 
 .upSubcategories .titleCategorie h1 {
@@ -64,7 +65,7 @@
           justify-content: space-between;
 }
 
-.subcategories button {
+.subcategories a {
   padding: 0 70px;
   position: relative;
   background-color: #ffffff;
@@ -73,19 +74,20 @@
   margin: 0;
 }
 
-.subcategories button span {
+.subcategories a span {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  width: 130px;
-  font-size: 1.125em;
+  width: 120px;
+  font-size: .850rem;
   font-weight: 600;
   margin: 0;
+  text-align: center;
 }
 
-.subcategories button:focus {
+.subcategories a:focus {
   background-color: #6e00ff;
   color: #ffffff;
 }
@@ -120,8 +122,9 @@
 .sortDiv .sort span {
   margin: 0 20px 0 0;
   font-weight: 600;
-  font-size: 1.125em;
+  font-size: .850rem;
   color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .sortDiv div {
@@ -139,10 +142,10 @@
   border-top: none;
 }
 
-.sortDiv div button {
+.sortDiv div a {
   display: block;
   width: 170px;
-  height: 35px;
+  height: 25px;
   z-index: 999;
   margin: 10px 0 10px 20px;
   border: none;
@@ -152,6 +155,7 @@
   text-align: left;
   font-size: 0.9375em;
   color: #000000;
+  text-decoration: none;
 }
 
 .sortDiv div button:nth-last-child(2) {
@@ -202,19 +206,20 @@
   position: relative;
 }
 
-.allProducts .product button {
+.allProducts .product a {
   padding: 0;
   text-align: left;
   background-color: #ffffff;
   border: none;
   margin: 0;
+  text-decoration: none;
 }
 
-.allProducts .product button .image img {
+.allProducts .product a .image img {
   width: 100%;
 }
 
-.allProducts .product button .backgroundPurple {
+.allProducts .product a .backgroundPurple {
   width: 150px;
   background-color: #6e00ff;
   height: 215px;
@@ -223,19 +228,19 @@
   display: none;
 }
 
-.allProducts .product button .productStats {
+.allProducts .product a .productStats {
   position: relative;
   width: 150px;
   height: 90px;
 }
 
-.allProducts .product button .productStats div {
+.allProducts .product a .productStats div {
   width: calc(100% - 10px);
   overflow: hidden;
 }
 
-.allProducts .product button .productStats div h1,
-.allProducts .product button .productStats div h2 {
+.allProducts .product a .productStats div h1,
+.allProducts .product a .productStats div h2 {
   margin: 5px 0 0 10px;
   white-space: nowrap;
   font-size: .875rem;
@@ -243,15 +248,15 @@
   text-overflow: ellipsis;
 }
 
-.allProducts .product button .productStats h1 {
+.allProducts .product a .productStats h1 {
   font-weight: 600;
 }
 
-.allProducts .product button .productStats h2 {
+.allProducts .product a .productStats h2 {
   font-weight: 400;
 }
 
-.allProducts .product button .productStats span {
+.allProducts .product a .productStats span {
   font-size: 1rem;
   font-weight: 600;
   position: absolute;
@@ -260,11 +265,11 @@
   color: #000000;
 }
 
-.allProducts .product button .productOptions {
+.allProducts .product a .productOptions {
   display: none;
 }
 
-.allProducts .product button {
+.allProducts .product a:focus {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -446,7 +451,7 @@
 
 .filtrDiv .filtrTitle {
   width: 100vw;
-  height: 40px;
+  height: 50px;
   background-color: #ffffff;
   border: 0.5px solid #7e7e7e;
   border-left: none;
@@ -454,8 +459,8 @@
 }
 
 .filtrDiv .filtrTitle .x {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: #ffffff;
   position: relative;
   border: none;
@@ -474,7 +479,7 @@
   height: 1px;
   background-color: #000000;
   border-radius: 2px;
-  top: 20px;
+  top: 25px;
   -webkit-box-shadow: 0 0 2px 0 #ccc;
           box-shadow: 0 0 2px 0 #ccc;
 }
@@ -482,13 +487,13 @@
 .filtrDiv .filtrTitle .x:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-  left: 7px;
+  left: 11.7px;
 }
 
 .filtrDiv .filtrTitle .x:after {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  right: 7px;
+  right: 11.7px;
 }
 
 .filtrDiv .filtrTitle h1 {
@@ -499,7 +504,7 @@
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  left: 60px;
+  left: 65px;
 }
 
 .filtrDiv .filtrTitle button:last-child {
@@ -548,7 +553,7 @@
           justify-content: space-between;
 }
 
-.filtrDiv .filtrDisplay .displayElement button {
+.filtrDiv .filtrDisplay .displayElement a {
   padding: 0 70px;
   position: relative;
   background-color: #ffffff;
@@ -557,19 +562,20 @@
   margin: 0;
 }
 
-.filtrDiv .filtrDisplay .displayElement button span {
+.filtrDiv .filtrDisplay .displayElement a span {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  width: 140px;
-  font-size: 1.125em;
+  width: 120px;
+  font-size: .850rem;
   font-weight: 600;
   margin: 0;
+  text-align: center;
 }
 
-.filtrDiv .filtrDisplay .displayElement button:focus {
+.filtrDiv .filtrDisplay .displayElement a:focus {
   background-color: #6e00ff;
   color: #ffffff;
   border: 2px solid #000000;

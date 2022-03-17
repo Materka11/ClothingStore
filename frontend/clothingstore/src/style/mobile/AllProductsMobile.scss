@@ -34,6 +34,7 @@
 		margin: 0;
 		width: 150px;
 		margin: 0 0 20px 30px;
+		text-decoration: none;
 
 		h1 {
 			margin: 0;
@@ -54,7 +55,7 @@
 	gap: 10px;
 	justify-content: space-between;
 
-	button {
+	a {
 		padding: 0 70px;
 		position: relative;
 		background-color: $white;
@@ -67,13 +68,15 @@
 			transform: translate(-50%, -50%);
 			left: 50%;
 			top: 50%;
-			width: 130px;
-			font-size: 1.125em;
+			width: 120px;
+			font-size: .850rem;
 			font-weight: 600;
 			margin: 0;
+			text-align: center;
 		}
 	}
-	button:focus {
+
+	a:focus {
 		background-color: $primary-color;
 		color: $white;
 	}
@@ -99,8 +102,10 @@
 		span {
 			margin: 0 20px 0 0;
 			font-weight: 600;
-			font-size: 1.125em;
+			font-size: .850rem;
 			color: $black;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+				'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 		}
 	}
 	div {
@@ -112,10 +117,10 @@
 		border: 2px solid $black;
 		border-top: none;
 
-		button {
+		a {
 			display: block;
 			width: 170px;
-			height: 35px;
+			height: 25px;
 			z-index: 999;
 			margin: 10px 0 10px 20px;
 			border: none;
@@ -125,6 +130,7 @@
 			text-align: left;
 			font-size: 0.9375em;
 			color: $black;
+			text-decoration: none;
 		}
 
 		button:nth-last-child(2) {
@@ -167,12 +173,13 @@
 		box-shadow: 0px 3px 11px -5px rgba(0, 0, 0, 0.3);
 		position: relative;
 
-		button {
+		a {
 			padding: 0;
 			text-align: left;
 			background-color: $white;
 			border: none;
 			margin: 0;
+			text-decoration: none;
 
 			.image {
 				img {
@@ -227,7 +234,7 @@
 				display: none;
 			}
 		}
-		button {
+		a:focus {
 			border: 1px solid rgba(0, 0, 0, 0.2);
 		}
 	}
@@ -355,15 +362,15 @@
 	//inside filtr div
 	.filtrTitle {
 		width: 100vw;
-		height: 40px;
+		height: 50px;
 		background-color: $white;
 		border: .5px solid $dark-gray;
 		border-left: none;
 		position: relative;
 
 		.x {
-			width: 40px;
-			height: 40px;
+			width: 50px;
+			height: 50px;
 			background-color: $white;
 			position: relative;
 			border: none;
@@ -381,7 +388,7 @@
 			height: 1px;
 			background-color: $black;
 			border-radius: 2px;
-			top: 20px;
+			top: 25px;
 			box-shadow: 0 0 2px 0 #ccc;
 		}
 
@@ -389,13 +396,13 @@
 			-webkit-transform: rotate(45deg);
 			-moz-transform: rotate(45deg);
 			transform: rotate(45deg);
-			left: 7px;
+			left: 11.7px;
 		}
 		.x:after {
 			-webkit-transform: rotate(-45deg);
 			-moz-transform: rotate(-45deg);
 			transform: rotate(-45deg);
-			right: 7px;
+			right: 11.7px;
 		}
 		h1 {
 			margin: 0;
@@ -404,7 +411,7 @@
 			position: absolute;
 			top: 50%;
 			transform: translate(0, -50%);
-			left: 60px;
+			left: 65px;
 		}
 
 		button:last-child {
@@ -444,7 +451,7 @@
 			gap: 10px;
 			justify-content: space-between;
 
-			button {
+			a {
 				padding: 0 70px;
 				position: relative;
 				background-color: $white;
@@ -457,14 +464,15 @@
 					transform: translate(-50%, -50%);
 					left: 50%;
 					top: 50%;
-					width: 140px;
-					font-size: 1.125em;
+					width: 120px;
+					font-size: .850rem;
 					font-weight: 600;
 					margin: 0;
+					text-align: center;
 				}
 			}
 
-			button:focus {
+			a:focus {
 				background-color: $primary-color;
 				color: $white;
 				border: 2px solid $black;
