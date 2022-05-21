@@ -9,7 +9,11 @@ import { faPlus, faShoppingCart, faUser, faChevronLeft, faSearch } from '@fortaw
 
 import { Link } from 'react-router-dom';
 
+import { CartState } from '../contexts/CartContext';
+
 function Header({ classNone, classInput, classNoneBorder, classLeftIcon, handleClickBack, handleClickInput }) {
+	const { state } = CartState();
+
 	return (
 		<React.Fragment>
 			<div className={`header ${classNone}`}>
@@ -18,7 +22,10 @@ function Header({ classNone, classInput, classNoneBorder, classLeftIcon, handleC
 				</Link>
 				<div>
 					<FontAwesomeIcon className="icon" icon={faPlus} />
-					<FontAwesomeIcon className="icon" icon={faShoppingCart} />
+					<Link to="/cartpage">
+						<FontAwesomeIcon className="icon" icon={faShoppingCart} />
+						{state.cart.length === 0 ? <span className="none" /> : <span>{state.cart.length}</span>}
+					</Link>
 					<FontAwesomeIcon className="icon" icon={faUser} />
 				</div>
 			</div>

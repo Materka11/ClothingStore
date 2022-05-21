@@ -2,8 +2,6 @@
 @import '../variables';
 
 .interestingOffers {
-	height: 550px;
-
 	h1 {
 		font-size: 1.5rem;
 		margin: 50px 30px 5px;
@@ -15,5 +13,22 @@
 	.linkTO {
 		color: $primary-color;
 		margin: 20px 30px;
+	}
+
+	.allProducts {
+		width: calc(100vw - 50px);
+		height: 320px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		display: flex;
+		align-items: stretch;
+		margin: 0 0 20px 30px;
+		gap: 30px;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+	}
+
+	.allProducts::-webkit-scrollbar {
+		display: none;
 	}
 }

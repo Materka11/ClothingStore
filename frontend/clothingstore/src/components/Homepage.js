@@ -10,6 +10,7 @@ import HomepageDisplay from './HomepageDisplay';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AllProducts from './AllProducts';
 import DetailsProduct from './DetailsProduct';
+import Cartpage from './Cartpage';
 
 function Homepage({ setClassFullscreen }) {
 	//useState on input and icon
@@ -85,8 +86,9 @@ function Homepage({ setClassFullscreen }) {
 				/>
 				<Route
 					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort/:id"
-					element={<DetailsProduct />}
+					element={<DetailsProduct classNone={classNone} />}
 				/>
+				<Route path="cartpage" element={<Cartpage classNone={classNone} />} />
 				<Route path="/" element={<Navigate replace to="homepage" />} />
 			</Routes>
 			<Newsletter classNone={classNone} />

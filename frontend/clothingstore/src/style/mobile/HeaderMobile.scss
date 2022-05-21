@@ -20,11 +20,24 @@
 	div {
 		flex-grow: 2;
 		text-align: right;
+
 		.icon {
 			margin: 0 10px;
 		}
 		.fa-user {
 			margin-right: 30px;
+		}
+		span {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background-color: $white;
+			border-radius: 50%;
+			top: 41px;
+			right: 82px;
+			color: $primary-color;
+			font-size: .500rem;
+			text-align: center;
 		}
 	}
 }

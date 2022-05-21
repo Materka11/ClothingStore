@@ -38,6 +38,19 @@
   margin-right: 30px;
 }
 
+.header div span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: 41px;
+  right: 82px;
+  color: #6e00ff;
+  font-size: .500rem;
+  text-align: center;
+}
+
 .inputDiv {
   position: relative;
   border-top: solid 1px #000000;

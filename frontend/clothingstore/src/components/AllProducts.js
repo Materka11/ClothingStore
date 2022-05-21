@@ -11,7 +11,7 @@ import '../style/mobile/AllProductsMobile.css';
 import { Link, useParams } from 'react-router-dom';
 
 function AllProducts({ classNone, setClassFullscreen }) {
-	const apiUrl = 'http://192.168.8.106:1337';
+	const apiUrl = 'http://192.168.8.107:1337';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 	const sizes = useFetch(`${apiUrl}/sizes`);
 	const brands = useFetch(`${apiUrl}/brands`);
