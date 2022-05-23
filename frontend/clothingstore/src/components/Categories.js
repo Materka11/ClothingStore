@@ -17,37 +17,37 @@ function Categories({ classNone }) {
 					<h1>Wszystko</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/menproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon person male" icon={faMale} />
 					<h1>Mężczyźni</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/womenproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon person" icon={faFemale} />
 					<h1>Kobiety</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/clothesproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon" icon={faTshirt} />
 					<h1>Odzież</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/footwearproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon" icon={faShoePrints} />
 					<h1>Obuwie</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="/accessoriesproducts/sub/size/brand/color/detail/ByNewest">
 				<div>
 					<FontAwesomeIcon className="icon" icon={faGlasses} />
 					<h1>Akcesoria</h1>
 				</div>
 			</Link>
-			<Link className="link" to="/allproducts">
+			<Link className="link" to="#">
 				<div className="tag">
 					<FontAwesomeIcon className="icon" icon={faTag} />
 					<h1>Marki</h1>

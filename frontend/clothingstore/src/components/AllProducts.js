@@ -18,6 +18,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	const colors = useFetch(`${apiUrl}/colors`);
 	const details = useFetch(`${apiUrl}/details`);
 
+	const { productsCategory } = useParams();
 	const { nameSub = 'sub' } = useParams();
 	const { nameSize = 'size' } = useParams();
 	const { nameBrand = 'brand' } = useParams();
@@ -48,6 +49,72 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	const [ wordWynik, setWordWynik ] = useState('wyników');
 	const [ onClickButtonResult, setOnClickButtonResult ] = useState('');
 
+	const [ products, setproducts ] = useState([]);
+
+	//filter productscategory
+	useEffect(
+		() => {
+			if (data != null) {
+				if (productsCategory === 'allproducts') {
+					setproducts(data);
+				} else if (productsCategory === 'menproducts') {
+					const filteredProducts = [];
+					data.map((product) => {
+						return product.categories.map((categorie) => {
+							if (categorie.name === 'Mężczyźni') {
+								filteredProducts.push(product);
+							}
+						});
+					});
+					setproducts(filteredProducts);
+				} else if (productsCategory === 'womenproducts') {
+					const filteredProducts = [];
+					data.map((product) => {
+						return product.categories.map((categorie) => {
+							if (categorie.name === 'Kobiety') {
+								filteredProducts.push(product);
+							}
+						});
+					});
+					setproducts(filteredProducts);
+				} else if (productsCategory === 'clothesproducts') {
+					const filteredProducts = [];
+					data.map((product) => {
+						return product.categories.map((categorie) => {
+							if (categorie.name === 'Odzież') {
+								filteredProducts.push(product);
+							}
+						});
+					});
+					setproducts(filteredProducts);
+				} else if (productsCategory === 'footwearproducts') {
+					const filteredProducts = [];
+					data.map((product) => {
+						return product.categories.map((categorie) => {
+							if (categorie.name === 'Obuwie') {
+								filteredProducts.push(product);
+							}
+						});
+					});
+					setproducts(filteredProducts);
+				} else if (productsCategory === 'accessoriesproducts') {
+					const filteredProducts = [];
+					data.map((product) => {
+						return product.categories.map((categorie) => {
+							if (categorie.name === 'Akcesoria') {
+								filteredProducts.push(product);
+							}
+						});
+					});
+					setproducts(filteredProducts);
+				}
+			}
+		},
+		[ productsCategory, data ]
+	);
+
+	console.log(products);
+	console.log(data);
 	//filter products
 	//satisfying moment 3
 	useEffect(
@@ -159,8 +226,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	//satisfying moment 4
 	useEffect(
 		() => {
-			if (changeSortData(data) != null) {
-				const filteredData = changeSortData(data)
+			if (changeSortData(products) != null) {
+				const filteredData = changeSortData(products)
 					.map((product) => {
 						if (product != null) {
 							const filteredSub = product.subcategories.filter((sub) => sub.name === nameSub);
@@ -191,8 +258,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	//sizes filter
 	useEffect(
 		() => {
-			if (productsFilter == 0 && changeSortData(data) != null) {
-				const sortData = changeSortData(data)
+			if (productsFilter == 0 && changeSortData(products) != null) {
+				const sortData = changeSortData(products)
 					.map((product) => {
 						if (product != null) {
 							return product.sizes.map((siz) => {
@@ -243,7 +310,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 				setSizesFilter(sortData);
 
-				if (sortData.length == 0) {
+				if (sortData.length === 0) {
 					setIsthereSize('Niestety nie posiadamy takiego rozmiaru');
 				} else if (sortData.length !== 0) {
 					setIsthereSize('');
@@ -256,8 +323,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	//brands filter
 	useEffect(
 		() => {
-			if (productsFilter == 0 && changeSortData(data) != null) {
-				const sortData = changeSortData(data)
+			if (productsFilter == 0 && changeSortData(products) != null) {
+				const sortData = changeSortData(products)
 					.map((product) => {
 						if (product != null) {
 							if (product.brand.name === nameBrand) {
@@ -299,8 +366,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	//color filter
 	useEffect(
 		() => {
-			if (productsFilter == 0 && changeSortData(data) != null) {
-				const sortData = changeSortData(data)
+			if (productsFilter == 0 && changeSortData(products) != null) {
+				const sortData = changeSortData(products)
 					.map((product) => {
 						if (product != null) {
 							return product.colors.map((color) => {
@@ -364,8 +431,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	//detail filter
 	useEffect(
 		() => {
-			if (productsFilter == 0 && changeSortData(data) != null) {
-				const sortData = changeSortData(data)
+			if (productsFilter == 0 && changeSortData(products) != null) {
+				const sortData = changeSortData(products)
 					.map((product) => {
 						if (product != null) {
 							return product.details.map((detail) => {
@@ -762,7 +829,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							sizes.data.map((size) => {
 								return (
 									<Link
-										to={`/allproducts/${nameSub}/${size.name}/${nameBrand}/${nameColor}/${nameDetail}/${sort}`}
+										to={`/${productsCategory}/${nameSub}/${size.name}/${nameBrand}/${nameColor}/${nameDetail}/${sort}`}
 										key={size.id}
 										// onClick={filterSizes.bind(this, size.name)}
 									>
@@ -785,7 +852,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							brands.data.map((brand) => {
 								return (
 									<Link
-										to={`/allproducts/${nameSub}/${nameSize}/${brand.name}/${nameColor}/${nameDetail}/${sort}`}
+										to={`/${productsCategory}/${nameSub}/${nameSize}/${brand.name}/${nameColor}/${nameDetail}/${sort}`}
 										key={brand.id}
 										// onClick={filterBrands.bind(this, brand.name)}
 									>
@@ -808,7 +875,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							colors.data.map((color) => {
 								return (
 									<Link
-										to={`/allproducts/${nameSub}/${nameSize}/${nameBrand}/${color.name}/${nameDetail}/${sort}`}
+										to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${color.name}/${nameDetail}/${sort}`}
 										key={color.id}
 										// onClick={filterColors.bind(this, color.name)}
 									>
@@ -831,7 +898,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							details.data.map((detail) => {
 								return (
 									<Link
-										to={`/allproducts/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${detail.name}/${sort}`}
+										to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${detail.name}/${sort}`}
 										key={detail.id}
 										// onClick={filterDetails.bind(this, detail.name)}
 										style={{ padding: '0 110px' }}
@@ -858,20 +925,20 @@ function AllProducts({ classNone, setClassFullscreen }) {
 						</Link>
 						<button onClick={handleClickFiltr}>Filtr</button>
 					</div>
-					<Link to="/allproducts/sub/size/brand/color/detail/ByNewest" className="titleCategorie">
+					<Link to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`} className="titleCategorie">
 						<h1>Wszystko</h1>
 					</Link>
 				</div>
 				<div className="subcategories">
 					{//satisfying moment 1
 					//subcategories display
-					removeDuplicatesSubcategories(data).map((product) => {
+					removeDuplicatesSubcategories(products).map((product) => {
 						return product.subcategories
 							.filter((a) => product.subcategories.indexOf(a) === 0)
 							.map((subcategorie) => {
 								return (
 									<Link
-										to={`/allproducts/${subcategorie.name}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/${sort}`}
+										to={`/${productsCategory}/${subcategorie.name}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/${sort}`}
 										onClick={filterSubcategories.bind(this, subcategorie.name)}
 										key={subcategorie.id}
 									>
@@ -888,21 +955,21 @@ function AllProducts({ classNone, setClassFullscreen }) {
 					</button>
 					<div className={classNoneSort}>
 						<Link
-							to={`/allproducts/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByNewest`}
+							to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByNewest`}
 							className={sort === 'ByNewest' ? 'ByNewest' : ''}
 							onClick={handleClickSortButton}
 						>
 							Nowości
 						</Link>
 						<Link
-							to={`/allproducts/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByCheapest`}
+							to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByCheapest`}
 							className={sort === 'ByCheapest' ? 'ByCheapest' : ''}
 							onClick={handleClickSortButton}
 						>
 							Najniższa cena
 						</Link>
 						<Link
-							to={`/allproducts/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByExpensive`}
+							to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${nameDetail}/ByExpensive`}
 							className={sort === 'ByExpensive' ? 'ByExpensive' : ''}
 							onClick={handleClickSortButton}
 						>
@@ -940,7 +1007,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							</div>
 						))
 					) : (
-						changeSortData(data).map((product) => (
+						changeSortData(products).map((product) => (
 							<div key={product.id} className="product">
 								<Link to={`${product.id}`}>
 									<div className="image">

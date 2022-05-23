@@ -51,41 +51,41 @@ function Homepage({ setClassFullscreen }) {
 			<Routes>
 				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
 				<Route
-					path="allproducts/sub/size/brand/color/detail/ByNewest"
+					path=":productsCategory/sub/size/brand/color/detail/ByNewest"
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub"
+					path=":productsCategory/:nameSub"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize"
+					path=":productsCategory/:nameSub/:nameSize"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize/:nameBrand"
+					path=":productsCategory/:nameSub/:nameSize/:nameBrand"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor"
+					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail"
+					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort"
+					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort"
 					exact={true}
 					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
 				/>
 				<Route
-					path="allproducts/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort/:id"
+					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort/:id"
 					element={<DetailsProduct classNone={classNone} />}
 				/>
 				<Route path="cartpage" element={<Cartpage classNone={classNone} />} />
