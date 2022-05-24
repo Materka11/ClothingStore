@@ -45,7 +45,9 @@ function InterestingOffers({ classNone }) {
 		<div className={`interestingOffers ${classNone}`}>
 			<h1>Najciekawsze oferty</h1>
 			<h1>Przedmioty wybrane dla Ciebie</h1>
-			<h3 className="linkTO">Zobacz więcej -&gt;</h3>
+			<Link to="/allproducts/sub/size/brand/color/detail/ByNewest" className="linkTO">
+				Zobacz więcej -&gt;
+			</Link>
 			<div className="allProducts">
 				{data.sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at)).map((product) => (
 					<div key={product.id} className="product">

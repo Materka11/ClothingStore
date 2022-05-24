@@ -11,6 +11,11 @@
 .interestingOffers .linkTO {
   color: #6e00ff;
   margin: 20px 30px;
+  text-decoration: none;
+  display: block;
+  font-weight: 700;
+  position: relative;
+  font-size: 1.125rem;
 }
 
 .interestingOffers .allProducts {

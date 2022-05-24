@@ -13,6 +13,11 @@
 	.linkTO {
 		color: $primary-color;
 		margin: 20px 30px;
+		text-decoration: none;
+		display: block;
+		font-weight: 700;
+		position: relative;
+		font-size: 1.125rem;
 	}
 
 	.allProducts {

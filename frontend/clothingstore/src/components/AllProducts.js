@@ -113,8 +113,6 @@ function AllProducts({ classNone, setClassFullscreen }) {
 		[ productsCategory, data ]
 	);
 
-	console.log(products);
-	console.log(data);
 	//filter products
 	//satisfying moment 3
 	useEffect(

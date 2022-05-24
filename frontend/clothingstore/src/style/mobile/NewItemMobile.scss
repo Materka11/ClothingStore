@@ -27,6 +27,13 @@
 	}
 	.linkTO {
 		font-size: 1.125rem;
+		text-decoration: none;
+		color: $white;
+		display: block;
+		margin: 20px 0;
+		font-weight: 700;
+		z-index: 99;
+		position: relative;
 	}
 	img {
 		width: 1000px;

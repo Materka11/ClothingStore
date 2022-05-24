@@ -21,6 +21,8 @@ function Homepage({ setClassFullscreen }) {
 	//inputDiv {border: none}
 	const [ classNoneBorder, setClassNoneBorder ] = useState('');
 
+	const [ classSearchDiv, setClassSearchDiv ] = useState('none');
+
 	//toggle class
 	const handleClickInput = () => {
 		setHasButtonBeenClicked(true);
@@ -28,6 +30,7 @@ function Homepage({ setClassFullscreen }) {
 		setClassInput('input-active');
 		setClassLeftIcon('');
 		setClassNoneBorder('noneBorder');
+		setClassSearchDiv('');
 	};
 
 	const handleClickBack = () => {
@@ -36,6 +39,7 @@ function Homepage({ setClassFullscreen }) {
 		setClassInput('input');
 		setClassLeftIcon('none');
 		setClassNoneBorder('');
+		setClassSearchDiv('none');
 	};
 
 	return (
@@ -47,6 +51,7 @@ function Homepage({ setClassFullscreen }) {
 				classLeftIcon={classLeftIcon}
 				handleClickInput={handleClickInput}
 				handleClickBack={handleClickBack}
+				classSearchDiv={classSearchDiv}
 			/>
 			<Routes>
 				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
