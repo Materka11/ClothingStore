@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CartState } from '../contexts/CartContext';
 
 import '../style/mobile/Cartpage.css';
@@ -6,19 +6,19 @@ import '../style/mobile/Cartpage.css';
 import InterestingOffers from './InterestingOffers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 function Cartpage({ classNone }) {
-	const apiUrl = 'http://192.168.8.107:1337';
+	const apiUrl = 'http://192.168.8.102:1337';
 	const { state, dispatch } = CartState();
 
 	const [ defaultQuantity, setdefaultQuantity ] = useState(1);
 
-	const handleChange = (event) => {
-		event.preventDefault();
-		setdefaultQuantity(event.target.value);
-	};
+	// const handleChange = (event) => {
+	// 	event.preventDefault();
+	// 	setdefaultQuantity(event.target.value);
+	// };
 
 	return (
 		<div className={classNone}>
@@ -51,7 +51,25 @@ function Cartpage({ classNone }) {
 
 											<div>
 												<h2>Ilość:</h2>
-												<input
+												<FontAwesomeIcon
+													className="icon left"
+													icon={faCaretLeft}
+													onClick={() => {
+														setdefaultQuantity(defaultQuantity - 1);
+													}}
+												/>
+												<div>
+													<h3>{defaultQuantity}</h3>
+												</div>
+												{/* tu jest blad */}
+												<FontAwesomeIcon
+													className="icon right"
+													icon={faCaretRight}
+													onClick={() => {
+														setdefaultQuantity(defaultQuantity + 1);
+													}}
+												/>
+												{/* <input
 													type="text"
 													maxLength="2"
 													onKeyPress={(event) => {
@@ -61,7 +79,7 @@ function Cartpage({ classNone }) {
 													}}
 													value={defaultQuantity}
 													onChange={handleChange}
-												/>
+												/> */}
 											</div>
 										</div>
 										<FontAwesomeIcon

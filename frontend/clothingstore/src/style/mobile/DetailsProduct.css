@@ -24,6 +24,10 @@
   display: none;
 }
 
+.desktopPhotos {
+  display: none;
+}
+
 .description {
   background-color: #6e00ff;
   color: white;
@@ -207,6 +211,10 @@
   border-bottom: 0.5px solid #7e7e7e;
 }
 
+.details .icon {
+  display: none;
+}
+
 .details div {
   padding: 50px 30px;
   border-bottom: 0.5px solid #7e7e7e;
@@ -214,5 +222,106 @@
 
 .details div h2 {
   font-size: .9375rem;
+}
+
+@media (min-width: 1440px) {
+  .desktopView {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 650px;
+  }
+  .desktopView .slider {
+    width: 400px;
+    border: none;
+    height: 600px;
+    position: absolute;
+    top: 20px;
+    left: 25%;
+  }
+  .desktopView .slider .slide {
+    width: 400px;
+  }
+  .desktopView .desktopPhotos {
+    position: absolute;
+    top: 20px;
+    left: 16.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: scroll;
+  }
+  .desktopView .desktopPhotos img {
+    width: 100px;
+    height: 100%;
+  }
+  .desktopView .desktopPhotos::-webkit-scrollbar {
+    display: none;
+  }
+  .desktopView .description {
+    width: 500px;
+    position: absolute;
+    top: 20px;
+    left: 55%;
+    height: 400px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+  .desktopView .description h2,
+  .desktopView .description h1 {
+    font-size: 1.75rem;
+    color: #000000;
+  }
+  .desktopView .description .selectSize {
+    margin-top: 70px;
+  }
+  .desktopView .description .selectSize div {
+    width: 450px;
+    left: 1%;
+    border: 1px solid #000000;
+    border-bottom: none;
+  }
+  .desktopView .details {
+    position: absolute;
+    top: 390px;
+    left: 55%;
+    padding: 30px;
+    width: 500px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .desktopView .details h1 {
+    z-index: 2;
+    position: relative;
+    border: none;
+  }
+  .desktopView .details .icon {
+    position: absolute;
+    top: 45px;
+    right: 55px;
+    z-index: 3;
+    display: block;
+  }
+  .desktopView .details div {
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -webkit-transform: translate(0, -99.5%);
+            transform: translate(0, -99.5%);
+    background-color: #ffffff;
+    z-index: 1;
+    position: relative;
+  }
+  .desktopView .details .classDetails {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
 }
 /*# sourceMappingURL=DetailsProduct.css.map */

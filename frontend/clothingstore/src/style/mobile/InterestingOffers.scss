@@ -2,6 +2,14 @@
 @import '../variables';
 
 .interestingOffers {
+	.left {
+		display: none;
+	}
+
+	.right {
+		display: none;
+	}
+
 	h1 {
 		font-size: 1.5rem;
 		margin: 50px 30px 5px;
@@ -25,15 +33,78 @@
 		height: 320px;
 		overflow-x: scroll;
 		overflow-y: hidden;
-		display: flex;
 		align-items: stretch;
 		margin: 0 0 20px 30px;
-		gap: 30px;
 		justify-content: space-between;
 		flex-wrap: nowrap;
 	}
 
 	.allProducts::-webkit-scrollbar {
 		display: none;
+	}
+}
+
+@media (min-width: 1440px) {
+	.interestingOffers {
+		position: relative;
+
+		.left {
+			display: block;
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			left: 13px;
+		}
+
+		.right {
+			display: block;
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			right: 13px;
+		}
+		h1 {
+			font-size: 2rem;
+			margin: 150px 50px 5px;
+		}
+
+		h1:nth-child(2) {
+			margin: 0 0 75px 50px;
+		}
+
+		.linkTO {
+			color: $primary-color;
+			font-size: 1.125rem;
+			position: absolute;
+			top: 70px;
+			right: 30px;
+		}
+
+		.interestingOffersAllProducts {
+			height: 555px !important;
+			margin: 0 0 20px 50px;
+			gap: 50px;
+			width: calc(100vw - 115px);
+
+			.product {
+				transition: all 1s ease-in-out;
+
+				.productStats {
+					width: 280px !important;
+					height: 120px;
+
+					h1,
+					h2 {
+						margin: 5px 0 0 15px;
+						font-size: 1.125rem;
+					}
+
+					span {
+						font-size: 1.5rem;
+						right: 20px;
+					}
+				}
+			}
+		}
 	}
 }

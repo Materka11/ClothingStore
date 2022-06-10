@@ -21,11 +21,13 @@
 
 .display .logIn {
   background-color: #6e00ff;
+  opacity: 0.71;
 }
 
 .display .signUp {
   background-color: #ffffff;
   color: #6e00ff;
+  opacity: 0.71;
   border: #6e00ff solid 2px;
   font-size: 1.125rem;
   height: 46px;
@@ -122,16 +124,46 @@
       -ms-flex-direction: row;
           flex-direction: row;
   height: 20px;
+  position: relative;
 }
 
 .productsDisplay .singleProductDisplay .right div div h2 {
   margin: 0;
 }
 
-.productsDisplay .singleProductDisplay .right div div input {
-  height: 10px;
-  margin: 2px;
-  width: 14px;
+.productsDisplay .singleProductDisplay .right div div div {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+  width: 30px;
+  margin: 0;
+  display: block;
+}
+
+.productsDisplay .singleProductDisplay .right div div div h3 {
+  font-weight: 400;
+  font-size: .9375rem;
+  text-align: center;
+  margin: 0;
+  position: static;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.productsDisplay .singleProductDisplay .right div div .left {
+  width: 10px;
+  top: .5px;
+  left: 37px;
+}
+
+.productsDisplay .singleProductDisplay .right div div .right {
+  width: 10px;
+  top: .5px;
+  left: 73px;
 }
 
 .productsDisplay .singleProductDisplay .right .icon {
@@ -154,5 +186,49 @@
 
 .productsDisplay .buttonDisplay button {
   margin: 0;
+}
+
+@media (min-width: 1440px) {
+  .display {
+    padding: 20px 0 10px;
+  }
+  .display h1 {
+    font-size: 2rem;
+  }
+  .display button {
+    width: 50%;
+    margin: 35px auto 0;
+    display: block;
+  }
+  .display .signUp {
+    width: 50%;
+    margin: 1px auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-top: none;
+  }
+  .productsDisplay {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 20px;
+  }
+  .productsDisplay .singleProductDisplay {
+    width: 500px;
+  }
+  .productsDisplay .buttonDisplay {
+    width: 40%;
+    margin: 5px 25vw 15px;
+  }
+  .productsDisplay .buttonDisplay button {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=Cartpage.css.map */

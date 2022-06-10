@@ -31,18 +31,8 @@
   padding: 0;
 }
 
-.upSubcategories .titleCategorie {
-  background-color: #ffffff;
-  border: none;
-  padding: 0;
-  margin: 0;
-  width: 150px;
+.upSubcategories h1 {
   margin: 0 0 20px 30px;
-  text-decoration: none;
-}
-
-.upSubcategories .titleCategorie h1 {
-  margin: 0;
   color: #000000;
   font-size: 2rem;
 }
@@ -81,7 +71,7 @@
   left: 50%;
   top: 50%;
   width: 120px;
-  font-size: .850rem;
+  font-size: .875rem;
   font-weight: 600;
   margin: 0;
   text-align: center;
@@ -122,7 +112,7 @@
 .sortDiv .sort span {
   margin: 0 20px 0 0;
   font-weight: 600;
-  font-size: .850rem;
+  font-size: .875rem;
   color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
@@ -220,11 +210,15 @@
 }
 
 .allProducts .product a .backgroundPurple {
-  width: 150px;
-  background-color: #6e00ff;
-  height: 215px;
+  width: 280px;
+  background-color: transparent;
+  height: 260px;
   position: absolute;
   top: 0;
+  opacity: .3;
+  display: block;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
   display: none;
 }
 
@@ -232,6 +226,8 @@
   position: relative;
   width: 150px;
   height: 90px;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .allProducts .product a .productStats div {
@@ -507,7 +503,7 @@
   left: 65px;
 }
 
-.filtrDiv .filtrTitle button:last-child {
+.filtrDiv .filtrTitle a {
   right: 10px;
   text-align: right;
   color: #6e00ff;
@@ -520,6 +516,7 @@
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
+  text-decoration: none;
 }
 
 .filtrDiv .filtrDisplay {
@@ -527,12 +524,20 @@
   background-color: #ffffff;
   border: 0.5px solid #7e7e7e;
   border-left: none;
-  overflow-x: scroll;
+  overflow: hidden;
 }
 
 .filtrDiv .filtrDisplay h1 {
   font-size: 1.125rem;
   margin-left: 15px;
+}
+
+.filtrDiv .filtrDisplay .left {
+  display: none;
+}
+
+.filtrDiv .filtrDisplay .right {
+  display: none;
 }
 
 .filtrDiv .filtrDisplay .displayElement {
@@ -569,16 +574,22 @@
   left: 50%;
   top: 50%;
   width: 120px;
-  font-size: .850rem;
+  font-size: .875rem;
   font-weight: 600;
   margin: 0;
   text-align: center;
 }
 
 .filtrDiv .filtrDisplay .displayElement a:focus {
-  background-color: #6e00ff;
-  color: #ffffff;
-  border: 2px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.filtrDiv .filtrDisplay .displayElement .focus {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #000000;
 }
 
 .filtrDiv .filtrDisplay div::-webkit-scrollbar {
@@ -623,5 +634,221 @@
   -webkit-transform: translate(0, 100vh);
           transform: translate(0, 100vh);
   visibility: hidden;
+}
+
+@media (min-width: 1440px) {
+  .items {
+    position: relative;
+  }
+  .upSubcategories h1 {
+    margin: 0 0 0 70px;
+  }
+  .upSubcategories div button {
+    top: 83px;
+    right: 80px;
+    border: 2px solid #000000;
+    padding: 11px 17px;
+    color: #000000;
+    font-size: .875rem;
+  }
+  .subcategories {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 235vh;
+    width: 170px;
+    position: absolute;
+    margin: 40px 0 0 120px;
+    padding: 0 0 10px 0;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 15px;
+  }
+  .subcategories a {
+    border: none;
+    padding: 0;
+    text-decoration: none;
+  }
+  .subcategories a span {
+    width: 100% !important;
+    position: relative !important;
+    display: inline-block;
+    text-align: left;
+  }
+  .subcategories a span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #6e00ff;
+    -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  }
+  .subcategories a span:hover:after {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+  }
+  .subcategories a:focus {
+    background-color: transparent;
+    color: #000000;
+  }
+  .sortDiv {
+    position: absolute;
+    right: 150px;
+    top: 80px;
+    z-index: 100;
+  }
+  .allProducts {
+    gap: 50px;
+    width: 75vw;
+    margin: 0 0 0 25vw;
+  }
+  .allProducts .product {
+    width: 280px !important;
+    height: 490px !important;
+  }
+  .allProducts .product .productStats {
+    height: 80px !important;
+    overflow: hidden;
+    width: 280px !important;
+  }
+  .allProducts .product .productStats h1,
+  .allProducts .product .productStats h2 {
+    margin: 10px 0 0 15px !important;
+    font-size: 1.125rem !important;
+  }
+  .allProducts .product .productStats h2 {
+    margin: 5px 0 0 15px !important;
+  }
+  .allProducts .product .productStats span {
+    font-size: 1.5rem !important;
+    right: 20px !important;
+    top: 33px;
+  }
+  .allProducts .product .productStats div {
+    width: calc(100% - 95px) !important;
+  }
+  .allProducts .product .backgroundPurple {
+    display: block !important;
+  }
+  .allProducts .product .hover {
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+  }
+  .allProducts .product .hover:hover ~ .backgroundPurple {
+    background-color: #6e00ff !important;
+  }
+  .allProducts .product .hover:hover ~ .productStats {
+    height: 240px !important;
+    -webkit-transform: translate(0, -150px);
+            transform: translate(0, -150px);
+    background-color: #ffffff;
+  }
+  .allProducts .product .productOptions {
+    display: block !important;
+  }
+  .allProducts .product .productOptions h1 {
+    position: absolute;
+    font-size: 0.875rem !important;
+    color: #6e00ff !important;
+  }
+  .allProducts .product .productOptions h1:first-child {
+    top: 90px;
+  }
+  .allProducts .product .productOptions .color {
+    top: 140px;
+  }
+  .allProducts .product .productOptions div {
+    position: absolute;
+    width: 100%;
+    left: 13px;
+  }
+  .allProducts .product .productOptions .sizes {
+    top: 120px;
+  }
+  .allProducts .product .productOptions .sizes span {
+    position: static;
+  }
+  .allProducts .product .productOptions .colors {
+    top: 170px;
+  }
+  .allProducts .product .productOptions .colors span {
+    position: static;
+  }
+  .allProducts .product .productOptions span {
+    font-weight: 400 !important;
+    font-size: 0.875rem !important;
+    margin: 2px;
+    color: #b1b1b3 !important;
+  }
+  .filtrDiv .filtrTitle a {
+    color: #000000;
+  }
+  .filtrDiv .filtrTitle a:hover {
+    color: #6e00ff;
+  }
+  .filtrDiv .filtrDisplay .displayElement {
+    width: calc(100vw - 80px);
+    margin: 0 0 0 40px;
+    position: relative;
+  }
+  .filtrDiv .filtrDisplay .displayElement .left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    left: 0;
+    background-color: #000000;
+    padding: 10px 20px;
+    opacity: .5;
+    color: #ffffff;
+  }
+  .filtrDiv .filtrDisplay .displayElement .right {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    right: 0;
+    background-color: #000000;
+    padding: 10px 20px;
+    opacity: .5;
+    color: #ffffff;
+  }
+  .filtrDiv .filtrDisplay .displayElement a {
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    transition: -webkit-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+    transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  }
+  .filtrDiv .filtrDisplay .displayElement a:hover {
+    background-color: #6e00ff;
+    color: #ffffff;
+    border-color: #000000;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  .filtrDiv .resultButton:hover {
+    background-color: #6e00ff;
+    color: #ffffff;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
 }
 /*# sourceMappingURL=AllProductsMobile.css.map */

@@ -23,11 +23,13 @@
 
 	.logIn {
 		background-color: $primary-color;
+		opacity: 0.71;
 	}
 
 	.signUp {
 		background-color: $white;
 		color: $primary-color;
+		opacity: 0.71;
 		border: $primary-color solid 2px;
 		font-size: 1.125rem;
 		height: 46px;
@@ -95,15 +97,52 @@
 					display: flex;
 					flex-direction: row;
 					height: 20px;
+					position: relative;
 
 					h2 {
 						margin: 0;
 					}
 
-					input {
-						height: 10px;
-						margin: 2px;
-						width: 14px;
+					div {
+						position: absolute;
+						top: 0px;
+						left: 45px;
+						width: 30px;
+						margin: 0;
+						display: block;
+
+						h3 {
+							font-weight: 400;
+							font-size: .9375rem;
+							text-align: center;
+							margin: 0;
+							position: static;
+							cursor: default;
+							-webkit-touch-callout: none;
+							-webkit-user-select: none;
+							-khtml-user-select: none;
+							-moz-user-select: none;
+							-ms-user-select: none;
+							user-select: none;
+						}
+					}
+
+					// input {
+					// 	height: 10px;
+					// 	margin: 2px;
+					// 	width: 14px;
+					// }
+
+					.left {
+						width: 10px;
+						top: .5px;
+						left: 37px;
+					}
+
+					.right {
+						width: 10px;
+						top: .5px;
+						left: 73px;
 					}
 				}
 			}
@@ -127,6 +166,49 @@
 
 		button {
 			margin: 0;
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.display {
+		padding: 20px 0 10px;
+
+		h1 {
+			font-size: 2rem;
+		}
+		button {
+			width: 50%;
+			margin: 35px auto 0;
+			display: block;
+		}
+
+		.signUp {
+			width: 50%;
+			margin: 1px auto;
+			box-sizing: border-box;
+			border-top: none;
+		}
+	}
+
+	.productsDisplay {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px;
+
+		.singleProductDisplay {
+			width: 500px;
+		}
+
+		.buttonDisplay {
+			width: 40%;
+			margin: 5px 25vw 15px;
+
+			button {
+				margin: 0 auto;
+				width: 100%;
+			}
 		}
 	}
 }

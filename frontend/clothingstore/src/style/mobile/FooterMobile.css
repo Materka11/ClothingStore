@@ -1,4 +1,9 @@
 .footer {
+  background-color: #6e00ff;
+  opacity: .71;
+}
+
+.footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,7 +14,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #6e00ff;
 }
 
 .footer img {

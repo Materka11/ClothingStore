@@ -9,13 +9,14 @@ import { Link } from 'react-router-dom';
 function NewItem({ classNone }) {
 	return (
 		<div className={`newItem ${classNone}`}>
-			<div>
+			<div className="inside">
 				<h1>Nowe przdmioty</h1>
 				<h1>Nowości już w sklepie</h1>
 				<Link to="/allproducts/sub/size/brand/color/detail/ByNewest" className="linkTO">
 					Odkryj teraz -&gt;
 				</Link>
 				<img src={newItem} alt="Nowy przedmiot" />
+				<div className="backgroundForNewItem" />
 			</div>
 		</div>
 	);

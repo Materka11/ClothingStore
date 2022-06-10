@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
 
-import { faChevronDown, faLongArrowAltLeft, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { faDizzy } from '@fortawesome/free-solid-svg-icons';
+import {
+	faChevronDown,
+	faLongArrowAltLeft,
+	faChevronUp,
+	faDizzy,
+	faChevronLeft,
+	faChevronRight,
+	faLongArrowAltUp
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useFetch from '../hooks/useFetch';
 
 import '../style/mobile/AllProductsMobile.css';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 function AllProducts({ classNone, setClassFullscreen }) {
-	const apiUrl = 'http://192.168.8.107:1337';
+	const apiUrl = 'http://192.168.8.102:1337';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 	const sizes = useFetch(`${apiUrl}/sizes`);
 	const brands = useFetch(`${apiUrl}/brands`);
@@ -51,6 +58,153 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 	const [ products, setproducts ] = useState([]);
 
+	const [ classBackgroundPurple, setClassBackgroundPurple ] = useState('');
+
+	const [ shift1, setshift1 ] = useState(0);
+	const [ classLeft1, setclassLeft1 ] = useState('');
+	const [ classRight1, setclassRight1 ] = useState('');
+	const [ shift2, setshift2 ] = useState(0);
+	const [ classLeft2, setclassLeft2 ] = useState('');
+	const [ classRight2, setclassRight2 ] = useState('');
+	const [ shift3, setshift3 ] = useState(0);
+	const [ classLeft3, setclassLeft3 ] = useState('');
+	const [ classRight3, setclassRight3 ] = useState('');
+	const [ shift4, setshift4 ] = useState(0);
+	const [ classLeft4, setclassLeft4 ] = useState('');
+	const [ classRight4, setclassRight4 ] = useState('');
+
+	const [ classFocusLink, setClassFocusLink ] = useState('');
+
+	//focus on link in filter
+	useEffect(
+		() => {
+			if (nameSize === 'sub') {
+				setClassFocusLink('');
+			} else {
+				setClassFocusLink('focus');
+			}
+		},
+		[ nameSize ]
+	);
+
+	useEffect(
+		() => {
+			if (nameBrand === 'sub') {
+				setClassFocusLink('');
+			} else {
+				setClassFocusLink('focus');
+			}
+		},
+		[ nameBrand ]
+	);
+
+	useEffect(
+		() => {
+			if (nameColor === 'sub') {
+				setClassFocusLink('');
+			} else {
+				setClassFocusLink('focus');
+			}
+		},
+		[ nameColor ]
+	);
+
+	useEffect(
+		() => {
+			if (nameDetail === 'sub') {
+				setClassFocusLink('');
+			} else {
+				setClassFocusLink('focus');
+			}
+		},
+		[ nameDetail ]
+	);
+
+	//shift filters
+	useEffect(
+		() => {
+			if (shift1 === 0) {
+				setclassLeft1('none');
+			} else if (shift1 !== 0) {
+				setclassLeft1('');
+			}
+
+			if (shift1 < -13000) {
+				setclassRight1('none');
+			} else if (shift1 >= -13000) {
+				setclassRight1('');
+			}
+		},
+		[ shift1 ]
+	);
+
+	useEffect(
+		() => {
+			if (shift2 === 0) {
+				setclassLeft2('none');
+			} else if (shift2 !== 0) {
+				setclassLeft2('');
+			}
+
+			if (shift2 < -2600) {
+				setclassRight2('none');
+			} else if (shift2 >= -2600) {
+				setclassRight2('');
+			}
+		},
+		[ shift2 ]
+	);
+
+	useEffect(
+		() => {
+			if (shift3 === 0) {
+				setclassLeft3('none');
+			} else if (shift3 !== 0) {
+				setclassLeft3('');
+			}
+
+			if (shift3 < -1300) {
+				setclassRight3('none');
+			} else if (shift3 >= -1300) {
+				setclassRight3('');
+			}
+		},
+		[ shift3 ]
+	);
+
+	useEffect(
+		() => {
+			if (shift4 === 0) {
+				setclassLeft4('none');
+			} else if (shift4 !== 0) {
+				setclassLeft4('');
+			}
+
+			if (shift4 < -20800) {
+				setclassRight4('none');
+			} else if (shift4 >= -20800) {
+				setclassRight4('');
+			}
+		},
+		[ shift4 ]
+	);
+
+	const productShift1 = {
+		transform: `translateX(${shift1}px)`
+	};
+
+	const productShift2 = {
+		transform: `translateX(${shift2}px)`
+	};
+
+	const productShift3 = {
+		transform: `translateX(${shift3}px)`
+	};
+
+	const productShift4 = {
+		transform: `translateX(${shift4}px)`,
+		padding: '0 110px'
+	};
 	//filter productscategory
 	useEffect(
 		() => {
@@ -253,6 +407,8 @@ function AllProducts({ classNone, setClassFullscreen }) {
 		[ nameSub, loading ]
 	);
 
+	let navigate = useNavigate();
+
 	//sizes filter
 	useEffect(
 		() => {
@@ -310,6 +466,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 				if (sortData.length === 0) {
 					setIsthereSize('Niestety nie posiadamy takiego rozmiaru');
+					navigate(`/${productsCategory}/${nameSub}/size/${nameBrand}/${nameColor}/${nameDetail}/${sort}`);
 				} else if (sortData.length !== 0) {
 					setIsthereSize('');
 				}
@@ -353,6 +510,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 				if (sortData.length == 0) {
 					setIsthereBrand('Niestety nie posiadamy takiej marki');
+					navigate(`/${productsCategory}/${nameSub}/${nameSize}/brand/${nameColor}/${nameDetail}/${sort}`);
 				} else if (sortData.length !== 0) {
 					setIsthereBrand('');
 				}
@@ -418,6 +576,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 				if (sortData.length == 0) {
 					setIsthereColor('Niestety nie posiadamy takiego koloru');
+					navigate(`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/color/${nameDetail}/${sort}`);
 				} else if (sortData.length !== 0) {
 					setIsthereColor('');
 				}
@@ -483,6 +642,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 
 				if (sortData.length == 0) {
 					setIsthereDetail('Niestety żaden produkt nie ma takich szczegółów');
+					navigate(`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/detail/${sort}`);
 				} else if (sortData.length !== 0) {
 					setIsthereDetail('');
 				}
@@ -559,6 +719,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	const handleClickFiltr = () => {
 		setClassFullscreen('fullscreen');
 		setClassFiltr('filtrDivVisible');
+		setClassBackgroundPurple('none');
 	};
 
 	//filter products subcategories
@@ -764,6 +925,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 		if (productsFilter.length != 0) {
 			setClassFiltr('filtrDivInvisible');
 			setClassFullscreen('');
+			setClassBackgroundPurple('');
 		} else {
 		}
 	};
@@ -776,6 +938,24 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	// 	} else {
 	// 		setIsFocus(false);
 	// 		setclassPurpleBG('none');
+	// 	}
+	// };
+
+	// const focusFiltrLink = (e) => {
+	// 	if (nameSize == e) {
+	// 		setClassFocusLink('focus');
+	// 	}
+
+	// 	if (nameBrand === e) {
+	// 		setClassFocusLink('focus');
+	// 	}
+
+	// 	if (nameColor === e) {
+	// 		setClassFocusLink('focus');
+	// 	}
+
+	// 	if (nameDetail === e) {
+	// 		setClassFocusLink('focus');
 	// 	}
 	// };
 
@@ -797,11 +977,13 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							setIsthereSize('');
 							setIsthereColor('');
 							setIsthereDetail('');
+							setClassBackgroundPurple('');
 						}}
 					/>
 					<div>
 						<h1>Filtr</h1>
-						<button
+						<Link
+							to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`}
 							onClick={() => {
 								setSizesFilter([]);
 								setBrandsFilter([]);
@@ -814,7 +996,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							}}
 						>
 							Wyczyść
-						</button>
+						</Link>
 					</div>
 				</div>
 				<div className="filtrDisplay">
@@ -827,8 +1009,11 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							sizes.data.map((size) => {
 								return (
 									<Link
+										style={productShift1}
 										to={`/${productsCategory}/${nameSub}/${size.name}/${nameBrand}/${nameColor}/${nameDetail}/${sort}`}
 										key={size.id}
+										// onClick={focusFiltrLink.bind(this, size.name)}
+										className={size.name === nameSize ? classFocusLink : ''}
 										// onClick={filterSizes.bind(this, size.name)}
 									>
 										<span>{size.name}</span>
@@ -836,11 +1021,22 @@ function AllProducts({ classNone, setClassFullscreen }) {
 								);
 							})
 						)}
+						<FontAwesomeIcon
+							className={`icon left ${classLeft1}`}
+							icon={faChevronLeft}
+							onClick={() => setshift1(shift1 + 1300)}
+						/>
+						<FontAwesomeIcon
+							className={`icon right ${classRight1}`}
+							icon={faChevronRight}
+							onClick={() => setshift1(shift1 + -1300)}
+						/>
 					</div>
 					<div>
 						<h1>{isthereSize}</h1>
 					</div>
 				</div>
+
 				<div className="filtrDisplay">
 					<h1>Marki</h1>
 					<div className="displayElement">
@@ -850,8 +1046,11 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							brands.data.map((brand) => {
 								return (
 									<Link
+										style={productShift2}
 										to={`/${productsCategory}/${nameSub}/${nameSize}/${brand.name}/${nameColor}/${nameDetail}/${sort}`}
 										key={brand.id}
+										// onClick={focusFiltrLink.bind(this, brand.name)}
+										className={brand.name === nameBrand ? classFocusLink : ''}
 										// onClick={filterBrands.bind(this, brand.name)}
 									>
 										<span>{brand.name}</span>
@@ -859,7 +1058,18 @@ function AllProducts({ classNone, setClassFullscreen }) {
 								);
 							})
 						)}
+						<FontAwesomeIcon
+							className={`icon left ${classLeft2}`}
+							icon={faChevronLeft}
+							onClick={() => setshift2(shift2 + 1300)}
+						/>
+						<FontAwesomeIcon
+							className={`icon right ${classRight2}`}
+							icon={faChevronRight}
+							onClick={() => setshift2(shift2 + -1300)}
+						/>
 					</div>
+
 					<div>
 						<h1>{isthereBrand}</h1>
 					</div>
@@ -873,8 +1083,11 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							colors.data.map((color) => {
 								return (
 									<Link
+										style={productShift3}
 										to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${color.name}/${nameDetail}/${sort}`}
 										key={color.id}
+										// onClick={focusFiltrLink.bind(this, color.name)}
+										className={color.name === nameColor ? classFocusLink : ''}
 										// onClick={filterColors.bind(this, color.name)}
 									>
 										<span>{color.name}</span>
@@ -882,6 +1095,16 @@ function AllProducts({ classNone, setClassFullscreen }) {
 								);
 							})
 						)}
+						<FontAwesomeIcon
+							className={`icon left ${classLeft3}`}
+							icon={faChevronLeft}
+							onClick={() => setshift3(shift3 + 1300)}
+						/>
+						<FontAwesomeIcon
+							className={`icon right ${classRight3}`}
+							icon={faChevronRight}
+							onClick={() => setshift3(shift3 + -1300)}
+						/>
 					</div>
 					<div>
 						<h1>{isthereColor}</h1>
@@ -896,16 +1119,28 @@ function AllProducts({ classNone, setClassFullscreen }) {
 							details.data.map((detail) => {
 								return (
 									<Link
+										style={productShift4}
 										to={`/${productsCategory}/${nameSub}/${nameSize}/${nameBrand}/${nameColor}/${detail.name}/${sort}`}
 										key={detail.id}
+										// onClick={focusFiltrLink.bind(this, detail.name)}
+										className={detail.name === nameDetail ? classFocusLink : ''}
 										// onClick={filterDetails.bind(this, detail.name)}
-										style={{ padding: '0 110px' }}
 									>
 										<span style={{ width: '200px', fontSize: '.750rem' }}>{detail.name}</span>
 									</Link>
 								);
 							})
 						)}
+						<FontAwesomeIcon
+							className={`icon left ${classLeft4}`}
+							icon={faChevronLeft}
+							onClick={() => setshift4(shift4 + 1300)}
+						/>
+						<FontAwesomeIcon
+							className={`icon right ${classRight4}`}
+							icon={faChevronRight}
+							onClick={() => setshift4(shift4 + -1300)}
+						/>
 					</div>
 					<div>
 						<h1>{isthereDetail}</h1>
@@ -918,14 +1153,13 @@ function AllProducts({ classNone, setClassFullscreen }) {
 			<div className={`items ${classNone}`}>
 				<div className="upSubcategories">
 					<div>
-						<Link to="/homepage">
+						<Link to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`}>
 							<FontAwesomeIcon className="icon" icon={faLongArrowAltLeft} />
 						</Link>
 						<button onClick={handleClickFiltr}>Filtr</button>
 					</div>
-					<Link to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`} className="titleCategorie">
-						<h1>Wszystko</h1>
-					</Link>
+
+					<h1>Wszystko</h1>
 				</div>
 				<div className="subcategories">
 					{//satisfying moment 1
@@ -984,7 +1218,10 @@ function AllProducts({ classNone, setClassFullscreen }) {
 									<div className="image">
 										<img src={apiUrl + product.photos[0].url} alt="product" />
 									</div>
-									<div className={`backgroundPurple`}>{/* background purple */}</div>
+									<div className="hover" />
+									<div className={`backgroundPurple ${classBackgroundPurple}`}>
+										{/* background purple */}
+									</div>
 									<div className="productStats">
 										<div>
 											<h1>{product.brand.name}</h1>
@@ -995,9 +1232,18 @@ function AllProducts({ classNone, setClassFullscreen }) {
 										<span>{product.price} zł</span>
 										<div className="productOptions">
 											<h1>ROZMIARY</h1>
-											{product.sizes.map((size) => <span key={size.id}>{size.name}</span>)}
-											<h1>KOLORY</h1>
-											{product.colors.map((color) => <span key={color.id}>{color.name}</span>)}
+											<div className="sizes">
+												{product.sizes
+													.slice(0, 10)
+													.sort((a, b) => a.id - b.id)
+													.map((size) => <span key={size.id}>{size.name}</span>)}
+											</div>
+											<h1 className="color">KOLORY</h1>
+											<div className="colors">
+												{product.colors.map((color) => (
+													<span key={color.id}>{color.name}</span>
+												))}
+											</div>
 											{/* <button>WIĘCEJ SZCZEGÓŁÓW</button> */}
 										</div>
 									</div>
@@ -1011,7 +1257,10 @@ function AllProducts({ classNone, setClassFullscreen }) {
 									<div className="image">
 										<img src={apiUrl + product.photos[0].url} alt="product" />
 									</div>
-									<div className={`backgroundPurple`}>{/* background purple */}</div>
+									<div className="hover" />
+									<div className={`backgroundPurple ${classBackgroundPurple}`}>
+										{/* background purple */}
+									</div>
 									<div className="productStats">
 										<div>
 											<h1>{product.brand.name}</h1>
@@ -1022,9 +1271,18 @@ function AllProducts({ classNone, setClassFullscreen }) {
 										<span>{product.price} zł</span>
 										<div className="productOptions">
 											<h1>ROZMIARY</h1>
-											{product.sizes.map((size) => <span key={size.id}>{size.name}</span>)}
-											<h1>KOLORY</h1>
-											{product.colors.map((color) => <span key={color.id}>{color.name}</span>)}
+											<div className="sizes">
+												{product.sizes
+													.slice(0, 10)
+													.sort((a, b) => a.id - b.id)
+													.map((size) => <span key={size.id}>{size.name}</span>)}
+											</div>
+											<h1 className="color">KOLORY</h1>
+											<div className="colors">
+												{product.colors.map((color) => (
+													<span key={color.id}>{color.name}</span>
+												))}
+											</div>
 											{/* <button>WIĘCEJ SZCZEGÓŁÓW</button> */}
 										</div>
 									</div>
@@ -1034,6 +1292,9 @@ function AllProducts({ classNone, setClassFullscreen }) {
 					)}
 				</div>
 			</div>
+			{/* <div className={`toTop `}>
+				<FontAwesomeIcon className="icon" icon={faLongArrowAltUp} />
+			</div> */}
 		</React.Fragment>
 	);
 }

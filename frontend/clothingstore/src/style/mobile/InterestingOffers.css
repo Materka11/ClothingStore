@@ -1,3 +1,11 @@
+.interestingOffers .left {
+  display: none;
+}
+
+.interestingOffers .right {
+  display: none;
+}
+
 .interestingOffers h1 {
   font-size: 1.5rem;
   margin: 50px 30px 5px;
@@ -23,14 +31,10 @@
   height: 320px;
   overflow-x: scroll;
   overflow-y: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   margin: 0 0 20px 30px;
-  gap: 30px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -40,5 +44,64 @@
 
 .interestingOffers .allProducts::-webkit-scrollbar {
   display: none;
+}
+
+@media (min-width: 1440px) {
+  .interestingOffers {
+    position: relative;
+  }
+  .interestingOffers .left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    left: 13px;
+  }
+  .interestingOffers .right {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    right: 13px;
+  }
+  .interestingOffers h1 {
+    font-size: 2rem;
+    margin: 150px 50px 5px;
+  }
+  .interestingOffers h1:nth-child(2) {
+    margin: 0 0 75px 50px;
+  }
+  .interestingOffers .linkTO {
+    color: #6e00ff;
+    font-size: 1.125rem;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+  }
+  .interestingOffers .interestingOffersAllProducts {
+    height: 555px !important;
+    margin: 0 0 20px 50px;
+    gap: 50px;
+    width: calc(100vw - 115px);
+  }
+  .interestingOffers .interestingOffersAllProducts .product {
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .interestingOffers .interestingOffersAllProducts .product .productStats {
+    width: 280px !important;
+    height: 120px;
+  }
+  .interestingOffers .interestingOffersAllProducts .product .productStats h1,
+  .interestingOffers .interestingOffersAllProducts .product .productStats h2 {
+    margin: 5px 0 0 15px;
+    font-size: 1.125rem;
+  }
+  .interestingOffers .interestingOffersAllProducts .product .productStats span {
+    font-size: 1.5rem;
+    right: 20px;
+  }
 }
 /*# sourceMappingURL=InterestingOffers.css.map */

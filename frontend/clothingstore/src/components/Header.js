@@ -24,7 +24,7 @@ function Header({
 }) {
 	const { state } = CartState();
 
-	const apiUrl = 'http://192.168.8.107:1337';
+	const apiUrl = 'http://192.168.8.102:1337';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 
 	const [ searchTerm, setSearchTerm ] = useState('');
@@ -80,7 +80,7 @@ function Header({
 				/>
 				<FontAwesomeIcon className="icon right" icon={faSearch} />
 			</div>
-			<div className={`allProducts ${classSearchDiv}`}>
+			<div className={`allProducts ${classSearchDiv} inHeader`}>
 				{data
 					.filter((e) => {
 						if (searchTerm === '') {
@@ -102,6 +102,7 @@ function Header({
 									<div className="image">
 										<img src={apiUrl + product.photos[0].url} alt="product" />
 									</div>
+									<div className="hover" />
 									<div className={`backgroundPurple`}>{/* background purple */}</div>
 									<div className="productStats">
 										<div>
@@ -113,9 +114,18 @@ function Header({
 										<span>{product.price} zł</span>
 										<div className="productOptions">
 											<h1>ROZMIARY</h1>
-											{product.sizes.map((size) => <span key={size.id}>{size.name}</span>)}
-											<h1>KOLORY</h1>
-											{product.colors.map((color) => <span key={color.id}>{color.name}</span>)}
+											<div className="sizes">
+												{product.sizes
+													.slice(0, 10)
+													.sort((a, b) => a.id - b.id)
+													.map((size) => <span key={size.id}>{size.name}</span>)}
+											</div>
+											<h1 className="color">KOLORY</h1>
+											<div className="colors">
+												{product.colors.map((color) => (
+													<span key={color.id}>{color.name}</span>
+												))}
+											</div>
 											{/* <button>WIĘCEJ SZCZEGÓŁÓW</button> */}
 										</div>
 									</div>
