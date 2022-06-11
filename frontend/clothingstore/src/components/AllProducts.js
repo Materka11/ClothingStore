@@ -18,7 +18,7 @@ import '../style/mobile/AllProductsMobile.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 function AllProducts({ classNone, setClassFullscreen }) {
-	const apiUrl = 'http://192.168.8.102:1337';
+	const apiUrl = 'http://192.168.8.106:1337';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 	const sizes = useFetch(`${apiUrl}/sizes`);
 	const brands = useFetch(`${apiUrl}/brands`);
@@ -74,6 +74,26 @@ function AllProducts({ classNone, setClassFullscreen }) {
 	const [ classRight4, setclassRight4 ] = useState('');
 
 	const [ classFocusLink, setClassFocusLink ] = useState('');
+
+	const [ classArrow, setClassArrow ] = useState('none');
+
+	useEffect(
+		() => {
+			if (
+				nameSub === 'sub' &&
+				nameSize === 'size' &&
+				nameBrand === 'brand' &&
+				nameColor === 'color' &&
+				nameDetail === 'detail' &&
+				sort === 'ByNewest'
+			) {
+				setClassArrow('none');
+			} else {
+				setClassArrow('');
+			}
+		},
+		[ nameSub, nameSize, nameBrand, nameColor, nameDetail, sort ]
+	);
 
 	//focus on link in filter
 	useEffect(
@@ -1153,7 +1173,7 @@ function AllProducts({ classNone, setClassFullscreen }) {
 			<div className={`items ${classNone}`}>
 				<div className="upSubcategories">
 					<div>
-						<Link to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`}>
+						<Link className={classArrow} to={`/${productsCategory}/sub/size/brand/color/detail/ByNewest`}>
 							<FontAwesomeIcon className="icon" icon={faLongArrowAltLeft} />
 						</Link>
 						<button onClick={handleClickFiltr}>Filtr</button>

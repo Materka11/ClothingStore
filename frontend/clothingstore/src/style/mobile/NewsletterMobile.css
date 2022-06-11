@@ -84,6 +84,7 @@
   border-radius: 50%;
   border: 1px solid #000000;
   position: relative;
+  cursor: pointer;
 }
 
 .newsletter div .radio span:after {
@@ -128,10 +129,12 @@
   height: 60px;
   position: relative;
   border: none;
+  cursor: pointer;
 }
 
 .newsletter div button:focus {
   background-color: #6e00ff;
+  opacity: 0.71;
 }
 
 .newsletter div p {
@@ -175,6 +178,14 @@
   }
   .newsletter div .radio h2 {
     width: 120px;
+  }
+  .newsletter div button:hover {
+    background-color: #6e00ff;
+    opacity: 0.71;
+  }
+  .newsletter div button:focus {
+    background-color: #000000;
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=NewsletterMobile.css.map */

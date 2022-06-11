@@ -13,7 +13,7 @@ import InterestingOffers from './InterestingOffers';
 import { CartState } from '../contexts/CartContext';
 
 function DetailsProduct({ classNone }) {
-	const apiUrl = 'http://192.168.8.102:1337';
+	const apiUrl = 'http://192.168.8.106:1337';
 	const { id } = useParams();
 	const { loading, error, data } = useFetch(`${apiUrl}/products/${id}`);
 

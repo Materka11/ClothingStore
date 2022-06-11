@@ -60,6 +60,7 @@
   font-size: 1.125rem;
   height: 50px;
   position: absolute;
+  cursor: pointer;
 }
 
 .description .selectSize .selectSizeButton span {
@@ -126,6 +127,7 @@
   right: 15px;
   z-index: 10;
   top: 5px;
+  cursor: pointer;
 }
 
 .description .selectSize div .x::before,
@@ -164,6 +166,7 @@
   background-color: #ffffff;
   text-align: left;
   font-size: .9375rem;
+  cursor: pointer;
 }
 
 .description .selectSize .classSize {
@@ -186,6 +189,7 @@
   text-decoration: none;
   -webkit-transform: translate(0, 65px);
           transform: translate(0, 65px);
+  cursor: pointer;
 }
 
 .description .cart span {
@@ -209,10 +213,12 @@
   margin: 0;
   padding: 15px 30px;
   border-bottom: 0.5px solid #7e7e7e;
+  cursor: pointer;
 }
 
 .details .icon {
   display: none;
+  cursor: pointer;
 }
 
 .details div {
@@ -260,6 +266,10 @@
   .desktopView .desktopPhotos img {
     width: 100px;
     height: 100%;
+    cursor: pointer;
+  }
+  .desktopView .desktopPhotos img:hover {
+    opacity: .7;
   }
   .desktopView .desktopPhotos::-webkit-scrollbar {
     display: none;

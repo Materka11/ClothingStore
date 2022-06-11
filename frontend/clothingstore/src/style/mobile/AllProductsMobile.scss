@@ -89,6 +89,7 @@
 		align-items: center;
 		background-color: $white;
 		border: 2px solid $black;
+		cursor: pointer;
 
 		span {
 			margin: 0 20px 0 0;
@@ -373,6 +374,7 @@
 			box-sizing: border-box;
 			float: left;
 			padding: 0;
+			cursor: pointer;
 		}
 
 		.x::before,
@@ -570,6 +572,7 @@
 				padding: 11px 17px;
 				color: $black;
 				font-size: .875rem;
+				cursor: pointer;
 			}
 		}
 	}
@@ -758,6 +761,7 @@
 					padding: 10px 20px;
 					opacity: .5;
 					color: $white;
+					cursor: pointer;
 				}
 
 				.right {
@@ -770,6 +774,7 @@
 					padding: 10px 20px;
 					opacity: .5;
 					color: $white;
+					cursor: pointer;
 				}
 
 				a {

@@ -69,6 +69,7 @@
 				border-radius: 50%;
 				border: 1px solid $black;
 				position: relative;
+				cursor: pointer;
 			}
 
 			span:after {
@@ -108,9 +109,11 @@
 			height: 60px;
 			position: relative;
 			border: none;
+			cursor: pointer;
 		}
 		button:focus {
 			background-color: $primary-color;
+			opacity: 0.71;
 		}
 		p {
 			font-size: .75em;
@@ -156,6 +159,16 @@
 				h2 {
 					width: 120px;
 				}
+			}
+
+			button:hover {
+				background-color: $primary-color;
+				opacity: 0.71;
+			}
+
+			button:focus {
+				background-color: $black;
+				opacity: 1;
 			}
 		}
 	}

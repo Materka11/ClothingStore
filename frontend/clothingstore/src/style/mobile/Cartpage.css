@@ -22,6 +22,7 @@
 .display .logIn {
   background-color: #6e00ff;
   opacity: 0.71;
+  cursor: pointer;
 }
 
 .display .signUp {
@@ -170,6 +171,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 }
 
 .productsDisplay .singleProductDisplay .right h3 {

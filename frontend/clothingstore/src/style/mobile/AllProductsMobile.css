@@ -107,6 +107,7 @@
           align-items: center;
   background-color: #ffffff;
   border: 2px solid #000000;
+  cursor: pointer;
 }
 
 .sortDiv .sort span {
@@ -465,6 +466,7 @@
           box-sizing: border-box;
   float: left;
   padding: 0;
+  cursor: pointer;
 }
 
 .filtrDiv .filtrTitle .x::before,
@@ -650,6 +652,7 @@
     padding: 11px 17px;
     color: #000000;
     font-size: .875rem;
+    cursor: pointer;
   }
   .subcategories {
     -webkit-box-orient: vertical;
@@ -818,6 +821,7 @@
     padding: 10px 20px;
     opacity: .5;
     color: #ffffff;
+    cursor: pointer;
   }
   .filtrDiv .filtrDisplay .displayElement .right {
     display: block;
@@ -830,6 +834,7 @@
     padding: 10px 20px;
     opacity: .5;
     color: #ffffff;
+    cursor: pointer;
   }
   .filtrDiv .filtrDisplay .displayElement a {
     -webkit-transition: -webkit-transform 1s ease-in-out;

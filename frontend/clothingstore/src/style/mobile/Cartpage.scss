@@ -24,6 +24,7 @@
 	.logIn {
 		background-color: $primary-color;
 		opacity: 0.71;
+		cursor: pointer;
 	}
 
 	.signUp {
@@ -150,6 +151,7 @@
 				position: absolute;
 				top: 20px;
 				right: 20px;
+				cursor: pointer;
 			}
 			h3 {
 				position: absolute;
