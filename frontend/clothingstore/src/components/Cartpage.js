@@ -10,7 +10,7 @@ import { faTrash, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-
 import { Link } from 'react-router-dom';
 
 function Cartpage({ classNone }) {
-	const apiUrl = 'http://192.168.8.106:1337';
+	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
 	const { state, dispatch } = CartState();
 
 	const [ defaultQuantity, setdefaultQuantity ] = useState(1);

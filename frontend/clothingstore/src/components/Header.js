@@ -24,7 +24,7 @@ function Header({
 }) {
 	const { state } = CartState();
 
-	const apiUrl = 'http://192.168.8.106:1337';
+	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 
 	const [ searchTerm, setSearchTerm ] = useState('');

@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useParams } from 'react-router-dom';
 
 function InterestingOffers({ classNone }) {
-	const apiUrl = 'http://192.168.8.106:1337';
+	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 
 	const { nameSub = 'sub' } = useParams();
