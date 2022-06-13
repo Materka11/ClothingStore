@@ -35,6 +35,8 @@ Technologies and methods used in this project:
 		- flexbox
 I wanted to put the whole project on the server but cloudinary did not want to work with Strapi, the possible reason for that was related to the old version of Strapi. I tried to update but the whole backend was ruined for me. Cooperation with herok was also hard.
 
+To run the project locally, you need to enter the following commands:
+
 	cd backend
 	npm run develop
 	cd ..
