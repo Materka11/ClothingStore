@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CartState } from '../contexts/CartContext';
 
 import '../style/mobile/Cartpage.css';
@@ -9,8 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-function Cartpage({ classNone }) {
-	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
+function Cartpage({ classNone, apiUrl }) {
 	const { state, dispatch } = CartState();
 
 	const [ defaultQuantity, setdefaultQuantity ] = useState(1);

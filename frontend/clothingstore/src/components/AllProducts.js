@@ -23,7 +23,6 @@ function AllProducts({ classNone, setClassFullscreen, apiUrl }) {
 	const brands = useFetch(`${apiUrl}/brands`);
 	const colors = useFetch(`${apiUrl}/colors`);
 	const details = useFetch(`${apiUrl}/details`);
-	console.log(apiUrl);
 
 	const { productsCategory } = useParams();
 	const { nameSub = 'sub' } = useParams();
