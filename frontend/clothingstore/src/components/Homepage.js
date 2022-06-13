@@ -13,6 +13,8 @@ import DetailsProduct from './DetailsProduct';
 import Cartpage from './Cartpage';
 
 function Homepage({ setClassFullscreen }) {
+	const apiUrl = 'http://your-ip:1337';
+
 	//useState on input and icon
 	const [ hasButtonBeenClicked, setHasButtonBeenClicked ] = useState(false);
 	const [ classNone, setClassNone ] = useState('');
@@ -52,48 +54,63 @@ function Homepage({ setClassFullscreen }) {
 				handleClickInput={handleClickInput}
 				handleClickBack={handleClickBack}
 				classSearchDiv={classSearchDiv}
+				apiUrl={apiUrl}
 			/>
 			<Routes>
-				<Route path="homepage" element={<HomepageDisplay classNone={classNone} />} />
+				<Route path="homepage" element={<HomepageDisplay classNone={classNone} apiUrl={apiUrl} />} />
 				<Route
 					path=":productsCategory/sub/size/brand/color/detail/ByNewest"
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize/:nameBrand"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort"
 					exact={true}
-					element={<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} />}
+					element={
+						<AllProducts classNone={classNone} setClassFullscreen={setClassFullscreen} apiUrl={apiUrl} />
+					}
 				/>
 				<Route
 					path=":productsCategory/:nameSub/:nameSize/:nameBrand/:nameColor/:nameDetail/:sort/:id"
-					element={<DetailsProduct classNone={classNone} />}
+					element={<DetailsProduct classNone={classNone} apiUrl={apiUrl} />}
 				/>
-				<Route path="cartpage" element={<Cartpage classNone={classNone} />} />
+				<Route path="cartpage" element={<Cartpage classNone={classNone} apiUrl={apiUrl} />} />
 				<Route path="/" element={<Navigate replace to="homepage" />} />
 			</Routes>
 			<Newsletter classNone={classNone} />

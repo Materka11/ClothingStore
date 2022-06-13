@@ -17,8 +17,7 @@ import '../style/mobile/AllProductsMobile.css';
 
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
-function AllProducts({ classNone, setClassFullscreen }) {
-	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
+function AllProducts({ classNone, setClassFullscreen, apiUrl }) {
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 	const sizes = useFetch(`${apiUrl}/sizes`);
 	const brands = useFetch(`${apiUrl}/brands`);

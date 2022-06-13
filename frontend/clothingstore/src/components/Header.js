@@ -20,11 +20,11 @@ function Header({
 	classLeftIcon,
 	handleClickBack,
 	handleClickInput,
-	classSearchDiv
+	classSearchDiv,
+	apiUrl
 }) {
 	const { state } = CartState();
 
-	const apiUrl = 'https://strapi-clothingstore.herokuapp.com';
 	const { loading, error, data } = useFetch(`${apiUrl}/products`);
 
 	const [ searchTerm, setSearchTerm ] = useState('');

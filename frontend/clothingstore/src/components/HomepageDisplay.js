@@ -4,12 +4,12 @@ import Categories from './Categories';
 import InterestingOffers from './InterestingOffers';
 import NewItem from './NewItem';
 
-function HomepageDisplay({ classNone }) {
+function HomepageDisplay({ classNone, apiUrl }) {
 	return (
 		<React.Fragment>
 			<Categories classNone={classNone} />
 			<NewItem classNone={classNone} />
-			<InterestingOffers classNone={classNone} />
+			<InterestingOffers classNone={classNone} apiUrl={apiUrl} />
 		</React.Fragment>
 	);
 }
